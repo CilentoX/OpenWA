@@ -56,8 +56,7 @@ COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/dist ./dist
 
 # Create data directories with proper permissions
-RUN mkdir -p ./data/sessions ./data/media && \
-    chown -R root:root /app
+RUN mkdir -p ./data/sessions ./data/media
 
 # Note: Running as root to allow Docker socket access for orchestration
 # For production with stricter security, consider using a Docker socket proxy
