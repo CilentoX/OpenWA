@@ -54,6 +54,7 @@ uploads/
 *.db
 *.sqlite
 *.sqlite3
+openwa
 
 # Docker
 .docker/
