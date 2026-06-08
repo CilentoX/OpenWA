@@ -4,6 +4,9 @@
 # ===== Stage 1: Builder =====
 FROM node:22-slim AS builder
 
+# Avoid downloading Chromium binary during npm install/ci in builder stage
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+
 WORKDIR /app
 
 # Install build dependencies (--no-install-recommends saves ~100MB)
@@ -25,6 +28,9 @@ COPY . .
 # Build the application
 RUN npm run build
 
+# Prune devDependencies to leave only production dependencies in node_modules
+RUN npm prune --omit=dev
+
 # ===== Stage 2: Production =====
 # Using official Puppeteer image eliminates the slow chromium apt-get install
 # (saves ~3-5 minutes and ~600MB vs installing chromium from apt)
@@ -44,13 +50,9 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 
 WORKDIR /app
 
-# Copy package files
-COPY package*.json ./
-
-# Install production dependencies only
-RUN npm ci --omit=dev && npm cache clean --force
-
-# Copy built application from builder stage
+# Copy package files and pruned node_modules / build files from builder
+COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/dist ./dist
 
 # Create data directories with proper permissions
