@@ -1,23 +1,7 @@
 # OpenWA - Docker Compose Configuration
-# Smart Orchestration with Profiles
+# Optimized for Coolify deployment (Coolify manages Traefik externally)
 
 services:
-  # ===== CORE: Traefik Reverse Proxy =====
-  traefik:
-    image: traefik:v3.0
-    container_name: openwa-traefik
-    profiles: ['with-proxy', 'full']
-    restart: unless-stopped
-    ports:
-      - '127.0.0.1:${DASHBOARD_PORT:-2886}:80'
-      - '127.0.0.1:8080:8080' # Traefik dashboard
-    volumes:
-      - ./traefik/traefik.yml:/etc/traefik/traefik.yml:ro
-      - ./traefik/dynamic.yml:/etc/traefik/dynamic.yml:ro
-    labels:
-      - 'com.openwa.service=proxy'
-      - 'com.openwa.core=true'
-
   # ===== CORE: OpenWA Backend API =====
   openwa-api:
     build:
@@ -25,8 +9,6 @@ services:
       dockerfile: Dockerfile
     container_name: openwa-api
     restart: unless-stopped
-    ports:
-      - '127.0.0.1:${API_PORT:-2785}:2785'
     expose:
       - '2785'
     environment:
@@ -34,14 +16,19 @@ services:
       - NODE_ENV=${NODE_ENV:-production}
       - PORT=2785
       - LOG_LEVEL=${LOG_LEVEL:-info}
+      # Public URLs
+      - BASE_URL=${BASE_URL:-https://api-openwa.qwertyatlas.online}
+      - DASHBOARD_URL=${DASHBOARD_URL:-https://openwa.qwertyatlas.online}
+      - CORS_ORIGINS=${CORS_ORIGINS:-https://openwa.qwertyatlas.online}
       # Database
-      - DATABASE_TYPE=${DATABASE_TYPE:-sqlite}
-      - DATABASE_NAME=${DATABASE_NAME:-/app/data/openwa.sqlite}
+      - DATABASE_TYPE=${DATABASE_TYPE:-postgres}
+      - DATABASE_NAME=${DATABASE_NAME:-openwa}
       - DATABASE_HOST=${DATABASE_HOST:-postgres}
       - DATABASE_PORT=${DATABASE_PORT:-5432}
       - DATABASE_USERNAME=${DATABASE_USERNAME:-openwa}
       - DATABASE_PASSWORD=${DATABASE_PASSWORD:-openwa}
       - DATABASE_SYNCHRONIZE=${DATABASE_SYNCHRONIZE:-false}
+      - DATABASE_LOGGING=${DATABASE_LOGGING:-false}
       # Engine
       - ENGINE_TYPE=${ENGINE_TYPE:-whatsapp-web.js}
       - SESSION_DATA_PATH=/app/data/sessions
@@ -70,6 +57,8 @@ services:
       - PLUGINS_DIR=/app/data/plugins
       # Security
       - API_MASTER_KEY=${API_MASTER_KEY:-}
+      # Swagger
+      - ENABLE_SWAGGER=${ENABLE_SWAGGER:-true}
     volumes:
       - openwa-data:/app/data
       - /var/run/docker.sock:/var/run/docker.sock:ro
@@ -77,10 +66,6 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
-        required: false
-      redis:
-        condition: service_healthy
-        required: false
     healthcheck:
       test:
         [
@@ -93,7 +78,30 @@ services:
       timeout: 10s
       retries: 3
       start_period: 30s
+    networks:
+      - internal
+      - coolify
     labels:
+      # --- Traefik (Coolify) routing ---
+      - 'traefik.enable=true'
+      # HTTP Router
+      - 'traefik.http.routers.openwa-api.rule=Host(`${API_HOST:-api-openwa.qwertyatlas.online}`)'
+      - 'traefik.http.routers.openwa-api.entrypoints=http'
+      - 'traefik.http.routers.openwa-api.service=openwa-api'
+      # HTTPS Router
+      - 'traefik.http.routers.openwa-api-secure.rule=Host(`${API_HOST:-api-openwa.qwertyatlas.online}`)'
+      - 'traefik.http.routers.openwa-api-secure.entrypoints=https'
+      - 'traefik.http.routers.openwa-api-secure.tls=true'
+      - 'traefik.http.routers.openwa-api-secure.tls.certresolver=letsencrypt'
+      - 'traefik.http.routers.openwa-api-secure.service=openwa-api'
+      # Service
+      - 'traefik.http.services.openwa-api.loadbalancer.server.port=2785'
+      # WebSocket support (for socket.io)
+      - 'traefik.http.middlewares.openwa-ws.headers.customrequestheaders.Connection=Upgrade'
+      - 'traefik.http.middlewares.openwa-ws.headers.customrequestheaders.Upgrade=websocket'
+      - 'traefik.http.routers.openwa-api-secure.middlewares=openwa-ws'
+      - 'traefik.http.routers.openwa-api.middlewares=openwa-ws'
+      # Meta
       - 'com.openwa.service=api'
       - 'com.openwa.core=true'
 
@@ -103,17 +111,34 @@ services:
       context: ./dashboard
       dockerfile: Dockerfile
     container_name: openwa-dashboard
-    profiles: ['with-dashboard', 'full']
     restart: unless-stopped
     expose:
       - '80'
     depends_on:
       - openwa-api
+    networks:
+      - internal
+      - coolify
     labels:
+      # --- Traefik (Coolify) routing ---
+      - 'traefik.enable=true'
+      # HTTP Router
+      - 'traefik.http.routers.openwa-dashboard.rule=Host(`${DASHBOARD_HOST:-openwa.qwertyatlas.online}`)'
+      - 'traefik.http.routers.openwa-dashboard.entrypoints=http'
+      - 'traefik.http.routers.openwa-dashboard.service=openwa-dashboard'
+      # HTTPS Router
+      - 'traefik.http.routers.openwa-dashboard-secure.rule=Host(`${DASHBOARD_HOST:-openwa.qwertyatlas.online}`)'
+      - 'traefik.http.routers.openwa-dashboard-secure.entrypoints=https'
+      - 'traefik.http.routers.openwa-dashboard-secure.tls=true'
+      - 'traefik.http.routers.openwa-dashboard-secure.tls.certresolver=letsencrypt'
+      - 'traefik.http.routers.openwa-dashboard-secure.service=openwa-dashboard'
+      # Service
+      - 'traefik.http.services.openwa-dashboard.loadbalancer.server.port=80'
+      # Meta
       - 'com.openwa.service=dashboard'
       - 'com.openwa.core=true'
 
-  # ===== OPTIONAL: Built-in PostgreSQL =====
+  # ===== CORE: PostgreSQL =====
   postgres:
     image: postgres:16-alpine
     container_name: openwa-postgres
@@ -129,6 +154,8 @@ services:
       interval: 5s
       timeout: 3s
       retries: 5
+    networks:
+      - internal
     labels:
       - 'com.openwa.service=database'
       - 'com.openwa.builtin=true'
@@ -147,6 +174,8 @@ services:
       interval: 5s
       timeout: 3s
       retries: 5
+    networks:
+      - internal
     labels:
       - 'com.openwa.service=cache'
       - 'com.openwa.builtin=true'
@@ -163,14 +192,13 @@ services:
       MINIO_ROOT_PASSWORD: ${S3_SECRET_KEY:-minioadmin}
     volumes:
       - minio-data:/data
-    ports:
-      - '127.0.0.1:9000:9000'
-      - '127.0.0.1:9001:9001'
     healthcheck:
       test: ['CMD', 'curl', '-f', 'http://localhost:9000/minio/health/live']
       interval: 10s
       timeout: 5s
       retries: 3
+    networks:
+      - internal
     labels:
       - 'com.openwa.service=storage'
       - 'com.openwa.builtin=true'
@@ -186,5 +214,7 @@ volumes:
     driver: local
 
 networks:
-  default:
-    name: openwa-network
+  internal:
+    name: openwa-internal
+  coolify:
+    external: true
