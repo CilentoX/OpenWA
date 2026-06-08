@@ -46,7 +46,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Chrome is pre-installed in the puppeteer image
 # Set the cache dir so puppeteer can find it (image default user is pptruser)
 ENV PUPPETEER_CACHE_DIR=/home/pptruser/.cache/puppeteer
-ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 
 WORKDIR /app
 
@@ -54,6 +53,9 @@ WORKDIR /app
 COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/dist ./dist
+
+# Install the exact Chrome version matching the installed Puppeteer package version
+RUN npx puppeteer browsers install chrome
 
 # Create data directories with proper permissions
 RUN mkdir -p ./data/sessions ./data/media
