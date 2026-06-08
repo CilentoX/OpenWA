@@ -1,0 +1,1386 @@
+2026-Jun-08 17:39:01.728810
+========================================
+2026-Jun-08 17:39:02.375677
+Deployment failed: Command execution failed (exit code 255): docker exec xigjgynzhslit33mqdbuwggk bash -c 'DOCKER_BUILDKIT=1 COOLIFY_BRANCH=main COOLIFY_RESOURCE_UUID=c8acuww7vsadgbe9wptxcd9n  docker compose --env-file /artifacts/build-time.env --project-name c8acuww7vsadgbe9wptxcd9n --project-directory /artifacts/xigjgynzhslit33mqdbuwggk -f /artifacts/xigjgynzhslit33mqdbuwggk/docker-compose.yml build --pull --build-arg COOLIFY_URL --build-arg COOLIFY_FQDN --build-arg NODE_ENV --build-arg LOG_LEVEL --build-arg DATABASE_TYPE --build-arg DATABASE_NAME --build-arg DATABASE_HOST --build-arg DATABASE_PORT --build-arg DATABASE_USERNAME --build-arg DATABASE_PASSWORD --build-arg DATABASE_SYNCHRONIZE --build-arg ENGINE_TYPE --build-arg PUPPETEER_HEADLESS --build-arg PUPPETEER_ARGS --build-arg STORAGE_TYPE --build-arg S3_ENDPOINT --build-arg S3_ACCESS_KEY --build-arg S3_SECRET_KEY --build-arg S3_BUCKET --build-arg REDIS_ENABLED --build-arg REDIS_HOST --build-arg REDIS_PORT --build-arg WEBHOOK_TIMEOUT --build-arg WEBHOOK_MAX_RETRIES --build-arg WEBHOOK_RETRY_DELAY --build-arg RATE_LIMIT_TTL --build-arg RATE_LIMIT_MAX --build-arg PLUGINS_ENABLED --build-arg API_MASTER_KEY --build-arg BASE_URL --build-arg DASHBOARD_URL --build-arg CORS_ORIGINS --build-arg DATABASE_LOGGING --build-arg ENABLE_SWAGGER --build-arg SERVICE_URL_OPENWA_API --build-arg SERVICE_FQDN_OPENWA_API --build-arg SERVICE_URL_DASHBOARD --build-arg SERVICE_FQDN_DASHBOARD --build-arg COOLIFY_BUILD_SECRETS_HASH=585d875c5540ee347f9e3bc6b2ba5045b75afa9889f0ef7e6fbbba0aea09e9f2'
+2026-Jun-08 17:39:02.375677
+Error: #1 [internal] load local bake definitions
+2026-Jun-08 17:39:02.375677
+#1 reading from stdin 4.38kB done
+2026-Jun-08 17:39:02.375677
+#1 DONE 0.0s
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#2 [openwa-api internal] load build definition from Dockerfile
+2026-Jun-08 17:39:02.375677
+#2 transferring dockerfile:
+2026-Jun-08 17:39:02.375677
+#2 ...
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#3 [dashboard internal] load build definition from Dockerfile
+2026-Jun-08 17:39:02.375677
+#3 transferring dockerfile: 1.98kB 0.0s done
+2026-Jun-08 17:39:02.375677
+#3 DONE 1.3s
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#2 [openwa-api internal] load build definition from Dockerfile
+2026-Jun-08 17:39:02.375677
+#2 transferring dockerfile: 3.61kB 0.0s done
+2026-Jun-08 17:39:02.375677
+#2 DONE 1.4s
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#4 [openwa-api internal] load metadata for docker.io/library/node:22-slim
+2026-Jun-08 17:39:02.375677
+#4 ...
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#5 [dashboard internal] load metadata for docker.io/library/nginx:alpine
+2026-Jun-08 17:39:02.375677
+#5 DONE 1.5s
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#6 [dashboard internal] load metadata for docker.io/library/node:20-alpine
+2026-Jun-08 17:39:02.375677
+#6 DONE 1.6s
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#4 [openwa-api internal] load metadata for docker.io/library/node:22-slim
+2026-Jun-08 17:39:02.375677
+#4 DONE 1.8s
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#7 [dashboard internal] load .dockerignore
+2026-Jun-08 17:39:02.375677
+#7 transferring context:
+2026-Jun-08 17:39:02.375677
+#7 transferring context: 2B 0.0s done
+2026-Jun-08 17:39:02.375677
+#7 DONE 0.7s
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#8 [openwa-api internal] load .dockerignore
+2026-Jun-08 17:39:02.375677
+#8 transferring context: 389B 0.0s done
+2026-Jun-08 17:39:02.375677
+#8 DONE 0.7s
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#9 [dashboard stage-1 1/3] FROM docker.io/library/nginx:alpine@sha256:8b1e78743a03dbb2c95171cc58639fef29abc8816598e27fb910ed2e621e589a
+2026-Jun-08 17:39:02.375677
+#9 resolve docker.io/library/nginx:alpine@sha256:8b1e78743a03dbb2c95171cc58639fef29abc8816598e27fb910ed2e621e589a
+2026-Jun-08 17:39:02.375677
+#9 ...
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#10 [openwa-api internal] load build context
+2026-Jun-08 17:39:02.375677
+#10 DONE 0.0s
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#11 [openwa-api builder 1/7] FROM docker.io/library/node:22-slim@sha256:7af03b14a13c8cdd38e45058fd957bf00a72bbe17feac43b1c15a689c029c732
+2026-Jun-08 17:39:02.375677
+#11 resolve docker.io/library/node:22-slim@sha256:7af03b14a13c8cdd38e45058fd957bf00a72bbe17feac43b1c15a689c029c732
+2026-Jun-08 17:39:02.375677
+#11 ...
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#12 [dashboard builder 1/6] FROM docker.io/library/node:20-alpine@sha256:fb4cd12c85ee03686f6af5362a0b0d56d50c58a04632e6c0fb8363f609372293
+2026-Jun-08 17:39:02.375677
+#12 resolve docker.io/library/node:20-alpine@sha256:fb4cd12c85ee03686f6af5362a0b0d56d50c58a04632e6c0fb8363f609372293 1.0s done
+2026-Jun-08 17:39:02.375677
+#12 DONE 1.1s
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#13 [dashboard internal] load build context
+2026-Jun-08 17:39:02.375677
+#13 transferring context: 547.36kB 0.4s done
+2026-Jun-08 17:39:02.375677
+#13 DONE 1.1s
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#14 [dashboard builder 2/6] WORKDIR /app
+2026-Jun-08 17:39:02.375677
+#14 CACHED
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#15 [dashboard builder 3/6] COPY package*.json ./
+2026-Jun-08 17:39:02.375677
+#15 CACHED
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#9 [dashboard stage-1 1/3] FROM docker.io/library/nginx:alpine@sha256:8b1e78743a03dbb2c95171cc58639fef29abc8816598e27fb910ed2e621e589a
+2026-Jun-08 17:39:02.375677
+#9 resolve docker.io/library/nginx:alpine@sha256:8b1e78743a03dbb2c95171cc58639fef29abc8816598e27fb910ed2e621e589a 1.1s done
+2026-Jun-08 17:39:02.375677
+#9 CACHED
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#11 [openwa-api builder 1/7] FROM docker.io/library/node:22-slim@sha256:7af03b14a13c8cdd38e45058fd957bf00a72bbe17feac43b1c15a689c029c732
+2026-Jun-08 17:39:02.375677
+#11 resolve docker.io/library/node:22-slim@sha256:7af03b14a13c8cdd38e45058fd957bf00a72bbe17feac43b1c15a689c029c732 0.8s done
+2026-Jun-08 17:39:02.375677
+#11 DONE 0.9s
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#16 [dashboard builder 4/6] RUN npm ci --legacy-peer-deps
+2026-Jun-08 17:39:02.375677
+#16 ...
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#17 [openwa-api builder 2/7] WORKDIR /app
+2026-Jun-08 17:39:02.375677
+#17 CACHED
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#11 [openwa-api builder 1/7] FROM docker.io/library/node:22-slim@sha256:7af03b14a13c8cdd38e45058fd957bf00a72bbe17feac43b1c15a689c029c732
+2026-Jun-08 17:39:02.375677
+#11 CACHED
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#18 [openwa-api production 2/8] RUN apt-get update && apt-get install -y     chromium     fonts-liberation     libappindicator3-1     libasound2     libatk-bridge2.0-0     libatk1.0-0     libcups2     libdbus-1-3     libdrm2     libgbm1     libgtk-3-0     libnspr4     libnss3     libx11-xcb1     libxcomposite1     libxdamage1     libxrandr2     xdg-utils     dumb-init     && rm -rf /var/lib/apt/lists/*
+2026-Jun-08 17:39:02.375677
+#18 ...
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#10 [openwa-api internal] load build context
+2026-Jun-08 17:39:02.375677
+#10 transferring context: 4.72MB 4.1s done
+2026-Jun-08 17:39:02.375677
+#10 DONE 5.2s
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#19 [openwa-api builder 3/7] RUN apt-get update && apt-get install -y     python3     make     g++     && rm -rf /var/lib/apt/lists/*
+2026-Jun-08 17:39:02.375677
+#19 ...
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#18 [openwa-api production 2/8] RUN apt-get update && apt-get install -y     chromium     fonts-liberation     libappindicator3-1     libasound2     libatk-bridge2.0-0     libatk1.0-0     libcups2     libdbus-1-3     libdrm2     libgbm1     libgtk-3-0     libnspr4     libnss3     libx11-xcb1     libxcomposite1     libxdamage1     libxrandr2     xdg-utils     dumb-init     && rm -rf /var/lib/apt/lists/*
+2026-Jun-08 17:39:02.375677
+#18 9.729 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+2026-Jun-08 17:39:02.375677
+#18 9.857 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+2026-Jun-08 17:39:02.375677
+#18 9.861 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+2026-Jun-08 17:39:02.375677
+#18 11.87 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8790 kB]
+2026-Jun-08 17:39:02.375677
+#18 13.58 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+2026-Jun-08 17:39:02.375677
+#18 13.71 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [306 kB]
+2026-Jun-08 17:39:02.375677
+#18 ...
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#19 [openwa-api builder 3/7] RUN apt-get update && apt-get install -y     python3     make     g++     && rm -rf /var/lib/apt/lists/*
+2026-Jun-08 17:39:02.375677
+#19 9.736 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+2026-Jun-08 17:39:02.375677
+#19 9.833 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+2026-Jun-08 17:39:02.375677
+#19 9.833 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+2026-Jun-08 17:39:02.375677
+#19 11.88 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8790 kB]
+2026-Jun-08 17:39:02.375677
+#19 13.38 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+2026-Jun-08 17:39:02.375677
+#19 13.48 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [306 kB]
+2026-Jun-08 17:39:02.375677
+#19 22.13 Fetched 9358 kB in 17s (547 kB/s)
+2026-Jun-08 17:39:02.375677
+#19 22.13 Reading package lists...
+2026-Jun-08 17:39:02.375677
+#19 ...
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#18 [openwa-api production 2/8] RUN apt-get update && apt-get install -y     chromium     fonts-liberation     libappindicator3-1     libasound2     libatk-bridge2.0-0     libatk1.0-0     libcups2     libdbus-1-3     libdrm2     libgbm1     libgtk-3-0     libnspr4     libnss3     libx11-xcb1     libxcomposite1     libxdamage1     libxrandr2     xdg-utils     dumb-init     && rm -rf /var/lib/apt/lists/*
+2026-Jun-08 17:39:02.375677
+#18 22.17 Fetched 9358 kB in 18s (534 kB/s)
+2026-Jun-08 17:39:02.375677
+#18 22.17 Reading package lists...
+2026-Jun-08 17:39:02.375677
+#18 ...
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#19 [openwa-api builder 3/7] RUN apt-get update && apt-get install -y     python3     make     g++     && rm -rf /var/lib/apt/lists/*
+2026-Jun-08 17:39:02.375677
+#19 22.13 Reading package lists...
+2026-Jun-08 17:39:02.375677
+#19 30.28 Reading package lists...
+2026-Jun-08 17:39:02.375677
+#19 37.25 Building dependency tree...
+2026-Jun-08 17:39:02.375677
+#19 39.09 Reading state information...
+2026-Jun-08 17:39:02.375677
+#19 ...
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#18 [openwa-api production 2/8] RUN apt-get update && apt-get install -y     chromium     fonts-liberation     libappindicator3-1     libasound2     libatk-bridge2.0-0     libatk1.0-0     libcups2     libdbus-1-3     libdrm2     libgbm1     libgtk-3-0     libnspr4     libnss3     libx11-xcb1     libxcomposite1     libxdamage1     libxrandr2     xdg-utils     dumb-init     && rm -rf /var/lib/apt/lists/*
+2026-Jun-08 17:39:02.375677
+#18 22.17 Reading package lists...
+2026-Jun-08 17:39:02.375677
+#18 30.79 Reading package lists...
+2026-Jun-08 17:39:02.375677
+#18 39.19 Building dependency tree...
+2026-Jun-08 17:39:02.375677
+#18 40.91 Reading state information...
+2026-Jun-08 17:39:02.375677
+#18 ...
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#19 [openwa-api builder 3/7] RUN apt-get update && apt-get install -y     python3     make     g++     && rm -rf /var/lib/apt/lists/*
+2026-Jun-08 17:39:02.375677
+#19 42.81 The following additional packages will be installed:
+2026-Jun-08 17:39:02.375677
+#19 42.81   binutils binutils-common binutils-x86-64-linux-gnu ca-certificates cpp
+2026-Jun-08 17:39:02.375677
+#19 42.82   cpp-12 fontconfig-config fonts-dejavu-core g++-12 gcc gcc-12 krb5-locales
+2026-Jun-08 17:39:02.375677
+#19 42.82   libabsl20220623 libaom3 libasan8 libatomic1 libavif15 libbinutils libbrotli1
+2026-Jun-08 17:39:02.375677
+#19 42.82   libbsd0 libc-dev-bin libc-devtools libc6-dev libcc1-0 libcrypt-dev
+2026-Jun-08 17:39:02.375677
+#19 42.82   libctf-nobfd0 libctf0 libdav1d6 libde265-0 libdeflate0 libexpat1
+2026-Jun-08 17:39:02.375677
+#19 42.83   libfontconfig1 libfreetype6 libgav1-1 libgcc-12-dev libgd3 libgomp1 libgpm2
+2026-Jun-08 17:39:02.375677
+#19 42.83   libgprofng0 libgssapi-krb5-2 libheif1 libisl23 libitm1 libjansson4 libjbig0
+2026-Jun-08 17:39:02.375677
+#19 42.83   libjpeg62-turbo libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 liblerc4
+2026-Jun-08 17:39:02.375677
+#19 42.83   liblsan0 libmpc3 libmpfr6 libncursesw6 libnsl-dev libnsl2 libnuma1
+2026-Jun-08 17:39:02.375677
+#19 42.83   libpng16-16 libpython3-stdlib libpython3.11-minimal libpython3.11-stdlib
+2026-Jun-08 17:39:02.375677
+#19 42.83   libquadmath0 librav1e0 libreadline8 libsqlite3-0 libssl3 libstdc++-12-dev
+2026-Jun-08 17:39:02.375677
+#19 42.83   libsvtav1enc1 libtiff6 libtirpc-common libtirpc-dev libtirpc3 libtsan2
+2026-Jun-08 17:39:02.375677
+#19 42.83   libubsan1 libwebp7 libx11-6 libx11-data libx265-199 libxau6 libxcb1
+2026-Jun-08 17:39:02.375677
+#19 42.83   libxdmcp6 libxpm4 libyuv0 linux-libc-dev manpages manpages-dev media-types
+2026-Jun-08 17:39:02.375677
+#19 42.84   openssl python3-minimal python3.11 python3.11-minimal readline-common
+2026-Jun-08 17:39:02.375677
+#19 42.84   rpcsvc-proto
+2026-Jun-08 17:39:02.375677
+#19 42.87 Suggested packages:
+2026-Jun-08 17:39:02.375677
+#19 42.87   binutils-doc cpp-doc gcc-12-locales cpp-12-doc g++-multilib g++-12-multilib
+2026-Jun-08 17:39:02.375677
+#19 42.87   gcc-12-doc gcc-multilib autoconf automake libtool flex bison gdb gcc-doc
+2026-Jun-08 17:39:02.375677
+#19 42.87   gcc-12-multilib glibc-doc libgd-tools gpm krb5-doc krb5-user
+2026-Jun-08 17:39:02.375677
+#19 42.87   libstdc++-12-doc make-doc man-browser python3-doc python3-tk python3-venv
+2026-Jun-08 17:39:02.375677
+#19 42.87   python3.11-venv python3.11-doc binfmt-support readline-doc
+2026-Jun-08 17:39:02.375677
+#19 47.00 The following NEW packages will be installed:
+2026-Jun-08 17:39:02.375677
+#19 47.00   binutils binutils-common binutils-x86-64-linux-gnu ca-certificates cpp
+2026-Jun-08 17:39:02.375677
+#19 47.01   cpp-12 fontconfig-config fonts-dejavu-core g++ g++-12 gcc gcc-12
+2026-Jun-08 17:39:02.375677
+#19 47.01   krb5-locales libabsl20220623 libaom3 libasan8 libatomic1 libavif15
+2026-Jun-08 17:39:02.375677
+#19 47.01   libbinutils libbrotli1 libbsd0 libc-dev-bin libc-devtools libc6-dev libcc1-0
+2026-Jun-08 17:39:02.375677
+#19 47.01   libcrypt-dev libctf-nobfd0 libctf0 libdav1d6 libde265-0 libdeflate0
+2026-Jun-08 17:39:02.375677
+#19 47.01   libexpat1 libfontconfig1 libfreetype6 libgav1-1 libgcc-12-dev libgd3
+2026-Jun-08 17:39:02.375677
+#19 47.01   libgomp1 libgpm2 libgprofng0 libgssapi-krb5-2 libheif1 libisl23 libitm1
+2026-Jun-08 17:39:02.375677
+#19 47.01   libjansson4 libjbig0 libjpeg62-turbo libk5crypto3 libkeyutils1 libkrb5-3
+2026-Jun-08 17:39:02.375677
+#19 47.01   libkrb5support0 liblerc4 liblsan0 libmpc3 libmpfr6 libncursesw6 libnsl-dev
+2026-Jun-08 17:39:02.375677
+#19 47.02   libnsl2 libnuma1 libpng16-16 libpython3-stdlib libpython3.11-minimal
+2026-Jun-08 17:39:02.375677
+#19 47.02   libpython3.11-stdlib libquadmath0 librav1e0 libreadline8 libsqlite3-0
+2026-Jun-08 17:39:02.375677
+#19 47.02   libssl3 libstdc++-12-dev libsvtav1enc1 libtiff6 libtirpc-common libtirpc-dev
+2026-Jun-08 17:39:02.375677
+#19 47.02   libtirpc3 libtsan2 libubsan1 libwebp7 libx11-6 libx11-data libx265-199
+2026-Jun-08 17:39:02.375677
+#19 47.02   libxau6 libxcb1 libxdmcp6 libxpm4 libyuv0 linux-libc-dev make manpages
+2026-Jun-08 17:39:02.375677
+#19 47.02   manpages-dev media-types openssl python3 python3-minimal python3.11
+2026-Jun-08 17:39:02.375677
+#19 47.03   python3.11-minimal readline-common rpcsvc-proto
+2026-Jun-08 17:39:02.375677
+#19 47.51 0 upgraded, 97 newly installed, 0 to remove and 2 not upgraded.
+2026-Jun-08 17:39:02.375677
+#19 47.51 Need to get 91.4 MB of archives.
+2026-Jun-08 17:39:02.375677
+#19 47.51 After this operation, 354 MB of additional disk space will be used.
+2026-Jun-08 17:39:02.375677
+#19 47.51 Get:1 http://deb.debian.org/debian bookworm/main amd64 libssl3 amd64 3.0.20-1~deb12u1 [2034 kB]
+2026-Jun-08 17:39:02.375677
+#19 47.78 Get:2 http://deb.debian.org/debian bookworm/main amd64 libpython3.11-minimal amd64 3.11.2-6+deb12u7 [818 kB]
+2026-Jun-08 17:39:02.375677
+#19 47.89 Get:3 http://deb.debian.org/debian bookworm/main amd64 libexpat1 amd64 2.5.0-1+deb12u2 [99.9 kB]
+2026-Jun-08 17:39:02.375677
+#19 47.94 Get:4 http://deb.debian.org/debian bookworm/main amd64 python3.11-minimal amd64 3.11.2-6+deb12u7 [2066 kB]
+2026-Jun-08 17:39:02.375677
+#19 48.21 Get:5 http://deb.debian.org/debian bookworm/main amd64 python3-minimal amd64 3.11.2-1+b1 [26.3 kB]
+2026-Jun-08 17:39:02.375677
+#19 48.22 Get:6 http://deb.debian.org/debian bookworm/main amd64 media-types all 10.0.0 [26.1 kB]
+2026-Jun-08 17:39:02.375677
+#19 48.23 Get:7 http://deb.debian.org/debian bookworm/main amd64 libncursesw6 amd64 6.4-4 [134 kB]
+2026-Jun-08 17:39:02.375677
+#19 48.27 Get:8 http://deb.debian.org/debian-security bookworm-security/main amd64 libkrb5support0 amd64 1.20.1-2+deb12u5 [33.2 kB]
+2026-Jun-08 17:39:02.375677
+#19 48.27 Get:9 http://deb.debian.org/debian-security bookworm-security/main amd64 libk5crypto3 amd64 1.20.1-2+deb12u5 [79.7 kB]
+2026-Jun-08 17:39:02.375677
+#19 48.29 Get:10 http://deb.debian.org/debian bookworm/main amd64 libkeyutils1 amd64 1.6.3-2 [8808 B]
+2026-Jun-08 17:39:02.375677
+#19 48.30 Get:11 http://deb.debian.org/debian-security bookworm-security/main amd64 libkrb5-3 amd64 1.20.1-2+deb12u5 [332 kB]
+2026-Jun-08 17:39:02.375677
+#19 48.34 Get:12 http://deb.debian.org/debian-security bookworm-security/main amd64 libgssapi-krb5-2 amd64 1.20.1-2+deb12u5 [135 kB]
+2026-Jun-08 17:39:02.375677
+#19 48.38 Get:13 http://deb.debian.org/debian bookworm/main amd64 libtirpc-common all 1.3.3+ds-1 [14.0 kB]
+2026-Jun-08 17:39:02.375677
+#19 48.40 Get:14 http://deb.debian.org/debian bookworm/main amd64 libtirpc3 amd64 1.3.3+ds-1 [85.2 kB]
+2026-Jun-08 17:39:02.375677
+#19 48.43 Get:15 http://deb.debian.org/debian bookworm/main amd64 libnsl2 amd64 1.3.0-2 [39.5 kB]
+2026-Jun-08 17:39:02.375677
+#19 48.43 Get:16 http://deb.debian.org/debian bookworm/main amd64 readline-common all 8.2-1.3 [69.0 kB]
+2026-Jun-08 17:39:02.375677
+#19 48.45 Get:17 http://deb.debian.org/debian bookworm/main amd64 libreadline8 amd64 8.2-1.3 [166 kB]
+2026-Jun-08 17:39:02.375677
+#19 48.48 Get:18 http://deb.debian.org/debian bookworm/main amd64 libsqlite3-0 amd64 3.40.1-2+deb12u2 [839 kB]
+2026-Jun-08 17:39:02.375677
+#19 48.59 Get:19 http://deb.debian.org/debian bookworm/main amd64 libpython3.11-stdlib amd64 3.11.2-6+deb12u7 [1797 kB]
+2026-Jun-08 17:39:02.375677
+#19 48.79 Get:20 http://deb.debian.org/debian bookworm/main amd64 python3.11 amd64 3.11.2-6+deb12u7 [574 kB]
+2026-Jun-08 17:39:02.375677
+#19 48.84 Get:21 http://deb.debian.org/debian bookworm/main amd64 libpython3-stdlib amd64 3.11.2-1+b1 [9312 B]
+2026-Jun-08 17:39:02.375677
+#19 48.85 Get:22 http://deb.debian.org/debian bookworm/main amd64 python3 amd64 3.11.2-1+b1 [26.3 kB]
+2026-Jun-08 17:39:02.375677
+#19 48.87 Get:23 http://deb.debian.org/debian bookworm/main amd64 openssl amd64 3.0.20-1~deb12u1 [1438 kB]
+2026-Jun-08 17:39:02.375677
+#19 49.04 Get:24 http://deb.debian.org/debian bookworm/main amd64 ca-certificates all 20230311+deb12u1 [155 kB]
+2026-Jun-08 17:39:02.375677
+#19 49.06 Get:25 http://deb.debian.org/debian-security bookworm-security/main amd64 krb5-locales all 1.20.1-2+deb12u5 [63.5 kB]
+2026-Jun-08 17:39:02.375677
+#19 49.08 Get:26 http://deb.debian.org/debian bookworm/main amd64 manpages all 6.03-2 [1332 kB]
+2026-Jun-08 17:39:02.375677
+#19 49.26 Get:27 http://deb.debian.org/debian bookworm/main amd64 binutils-common amd64 2.40-2 [2487 kB]
+2026-Jun-08 17:39:02.375677
+#19 49.57 Get:28 http://deb.debian.org/debian bookworm/main amd64 libbinutils amd64 2.40-2 [572 kB]
+2026-Jun-08 17:39:02.375677
+#19 49.63 Get:29 http://deb.debian.org/debian bookworm/main amd64 libctf-nobfd0 amd64 2.40-2 [153 kB]
+2026-Jun-08 17:39:02.375677
+#19 49.66 Get:30 http://deb.debian.org/debian bookworm/main amd64 libctf0 amd64 2.40-2 [89.8 kB]
+2026-Jun-08 17:39:02.375677
+#19 49.68 Get:31 http://deb.debian.org/debian bookworm/main amd64 libgprofng0 amd64 2.40-2 [812 kB]
+2026-Jun-08 17:39:02.375677
+#19 49.77 Get:32 http://deb.debian.org/debian bookworm/main amd64 libjansson4 amd64 2.14-2 [40.8 kB]
+2026-Jun-08 17:39:02.375677
+#19 49.80 Get:33 http://deb.debian.org/debian bookworm/main amd64 binutils-x86-64-linux-gnu amd64 2.40-2 [2246 kB]
+2026-Jun-08 17:39:02.375677
+#19 50.04 Get:34 http://deb.debian.org/debian bookworm/main amd64 binutils amd64 2.40-2 [65.0 kB]
+2026-Jun-08 17:39:02.375677
+#19 50.05 Get:35 http://deb.debian.org/debian bookworm/main amd64 libisl23 amd64 0.25-1.1 [683 kB]
+2026-Jun-08 17:39:02.375677
+#19 50.13 Get:36 http://deb.debian.org/debian bookworm/main amd64 libmpfr6 amd64 4.2.0-1 [701 kB]
+2026-Jun-08 17:39:02.375677
+#19 50.19 Get:37 http://deb.debian.org/debian bookworm/main amd64 libmpc3 amd64 1.3.1-1 [51.5 kB]
+2026-Jun-08 17:39:02.375677
+#19 50.48 Get:38 http://deb.debian.org/debian bookworm/main amd64 cpp-12 amd64 12.2.0-14+deb12u1 [9768 kB]
+2026-Jun-08 17:39:02.375677
+#19 51.52 Get:39 http://deb.debian.org/debian bookworm/main amd64 cpp amd64 4:12.2.0-3 [6836 B]
+2026-Jun-08 17:39:02.375677
+#19 51.53 Get:40 http://deb.debian.org/debian bookworm/main amd64 fonts-dejavu-core all 2.37-6 [1068 kB]
+2026-Jun-08 17:39:02.375677
+#19 51.63 Get:41 http://deb.debian.org/debian bookworm/main amd64 fontconfig-config amd64 2.14.1-4 [315 kB]
+2026-Jun-08 17:39:02.375677
+#19 51.67 Get:42 http://deb.debian.org/debian bookworm/main amd64 libcc1-0 amd64 12.2.0-14+deb12u1 [41.7 kB]
+2026-Jun-08 17:39:02.375677
+#19 51.68 Get:43 http://deb.debian.org/debian bookworm/main amd64 libgomp1 amd64 12.2.0-14+deb12u1 [116 kB]
+2026-Jun-08 17:39:02.375677
+#19 51.68 Get:44 http://deb.debian.org/debian bookworm/main amd64 libitm1 amd64 12.2.0-14+deb12u1 [26.1 kB]
+2026-Jun-08 17:39:02.375677
+#19 51.69 Get:45 http://deb.debian.org/debian bookworm/main amd64 libatomic1 amd64 12.2.0-14+deb12u1 [9376 B]
+2026-Jun-08 17:39:02.375677
+#19 51.79 Get:46 http://deb.debian.org/debian bookworm/main amd64 libasan8 amd64 12.2.0-14+deb12u1 [2193 kB]
+2026-Jun-08 17:39:02.375677
+#19 52.04 Get:47 http://deb.debian.org/debian bookworm/main amd64 liblsan0 amd64 12.2.0-14+deb12u1 [969 kB]
+2026-Jun-08 17:39:02.375677
+#19 52.19 Get:48 http://deb.debian.org/debian bookworm/main amd64 libtsan2 amd64 12.2.0-14+deb12u1 [2197 kB]
+2026-Jun-08 17:39:02.375677
+#19 52.47 Get:49 http://deb.debian.org/debian bookworm/main amd64 libubsan1 amd64 12.2.0-14+deb12u1 [883 kB]
+2026-Jun-08 17:39:02.375677
+#19 52.58 Get:50 http://deb.debian.org/debian bookworm/main amd64 libquadmath0 amd64 12.2.0-14+deb12u1 [145 kB]
+2026-Jun-08 17:39:02.375677
+#19 52.71 Get:51 http://deb.debian.org/debian bookworm/main amd64 libgcc-12-dev amd64 12.2.0-14+deb12u1 [2437 kB]
+2026-Jun-08 17:39:02.375677
+#19 54.01 Get:52 http://deb.debian.org/debian bookworm/main amd64 gcc-12 amd64 12.2.0-14+deb12u1 [19.3 MB]
+2026-Jun-08 17:39:02.375677
+#19 ...
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#18 [openwa-api production 2/8] RUN apt-get update && apt-get install -y     chromium     fonts-liberation     libappindicator3-1     libasound2     libatk-bridge2.0-0     libatk1.0-0     libcups2     libdbus-1-3     libdrm2     libgbm1     libgtk-3-0     libnspr4     libnss3     libx11-xcb1     libxcomposite1     libxdamage1     libxrandr2     xdg-utils     dumb-init     && rm -rf /var/lib/apt/lists/*
+2026-Jun-08 17:39:02.375677
+#18 44.55 The following additional packages will be installed:
+2026-Jun-08 17:39:02.375677
+#18 44.55   adwaita-icon-theme alsa-topology-conf alsa-ucm-conf at-spi2-common
+2026-Jun-08 17:39:02.375677
+#18 44.55   at-spi2-core avahi-daemon avahi-utils ca-certificates chromium-common
+2026-Jun-08 17:39:02.375677
+#18 44.55   chromium-sandbox cpp cpp-12 cups-pk-helper dbus dbus-bin dbus-daemon
+2026-Jun-08 17:39:02.375677
+#18 44.55   dbus-session-bus-common dbus-system-bus-common dbus-user-session
+2026-Jun-08 17:39:02.375677
+#18 44.56   dconf-gsettings-backend dconf-service dmsetup fontconfig fontconfig-config
+2026-Jun-08 17:39:02.375677
+#18 44.56   gir1.2-atk-1.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-glib-2.0
+2026-Jun-08 17:39:02.375677
+#18 44.56   gir1.2-gtk-3.0 gir1.2-handy-1 gir1.2-harfbuzz-0.0 gir1.2-notify-0.7
+2026-Jun-08 17:39:02.375677
+#18 44.56   gir1.2-packagekitglib-1.0 gir1.2-pango-1.0 gir1.2-polkit-1.0 gir1.2-secret-1
+2026-Jun-08 17:39:02.375677
+#18 44.56   gsettings-desktop-schemas gtk-update-icon-cache hicolor-icon-theme
+2026-Jun-08 17:39:02.375677
+#18 44.56   krb5-locales libapparmor1 libargon2-1 libasound2-data libasyncns0
+2026-Jun-08 17:39:02.375677
+#18 44.56   libatspi2.0-0 libauthen-sasl-perl libavahi-client3 libavahi-common-data
+2026-Jun-08 17:39:02.375677
+#18 44.56   libavahi-common3 libavahi-core7 libayatana-ido3-0.4-0
+2026-Jun-08 17:39:02.375677
+#18 44.56   libayatana-indicator3-7 libbrotli1 libbsd0 libcairo-gobject2 libcairo2
+2026-Jun-08 17:39:02.375677
+#18 44.56   libclone-perl libcolord2 libcryptsetup12 libdaemon0 libdata-dump-perl
+2026-Jun-08 17:39:02.375677
+#18 44.56   libdatrie1 libdav1d6 libdbusmenu-glib4 libdbusmenu-gtk3-4 libdconf1
+2026-Jun-08 17:39:02.375677
+#18 44.56   libdeflate0 libdevmapper1.02.1 libdouble-conversion3 libdrm-amdgpu1
+2026-Jun-08 17:39:02.375677
+#18 44.56   libdrm-common libdrm-intel1 libdrm-nouveau2 libdrm-radeon1 libduktape207
+2026-Jun-08 17:39:02.375677
+#18 44.56   libedit2 libegl-mesa0 libegl1 libelf1 libencode-locale-perl libepoxy0
+2026-Jun-08 17:39:02.375677
+#18 44.56   libexpat1 libfdisk1 libfile-basedir-perl libfile-desktopentry-perl
+2026-Jun-08 17:39:02.375677
+#18 44.56   libfile-listing-perl libfile-mimeinfo-perl libflac12 libfont-afm-perl
+2026-Jun-08 17:39:02.375677
+#18 44.56   libfontconfig1 libfontenc1 libfreetype6 libfribidi0 libgdbm-compat4 libgdbm6
+2026-Jun-08 17:39:02.375677
+#18 44.56   libgdk-pixbuf-2.0-0 libgdk-pixbuf2.0-bin libgdk-pixbuf2.0-common
+2026-Jun-08 17:39:02.375677
+#18 44.56   libgirepository-1.0-1 libgl1 libgl1-mesa-dri libglapi-mesa libgles2
+2026-Jun-08 17:39:02.375677
+#18 44.56   libglib2.0-0 libglib2.0-data libglvnd0 libglx-mesa0 libglx0 libgpm2
+2026-Jun-08 17:39:02.375677
+#18 44.56   libgraphite2-3 libgssapi-krb5-2 libgtk-3-bin libgtk-3-common libgudev-1.0-0
+2026-Jun-08 17:39:02.375677
+#18 44.56   libhandy-1-0 libharfbuzz-subset0 libharfbuzz0b libhtml-form-perl
+2026-Jun-08 17:39:02.375677
+#18 44.56   libhtml-format-perl libhtml-parser-perl libhtml-tagset-perl
+2026-Jun-08 17:39:02.375677
+#18 44.56   libhtml-tree-perl libhttp-cookies-perl libhttp-daemon-perl libhttp-date-perl
+2026-Jun-08 17:39:02.375677
+#18 44.56   libhttp-message-perl libhttp-negotiate-perl libice6 libicu72 libio-html-perl
+2026-Jun-08 17:39:02.375677
+#18 44.56   libio-socket-ssl-perl libio-stringy-perl libip4tc2 libipc-system-simple-perl
+2026-Jun-08 17:39:02.375677
+#18 44.56   libisl23 libjansson4 libjbig0 libjpeg62-turbo libjson-c5 libk5crypto3
+2026-Jun-08 17:39:02.375677
+#18 44.56   libkeyutils1 libkmod2 libkrb5-3 libkrb5support0 liblcms2-2 libldap-2.5-0
+2026-Jun-08 17:39:02.375677
+#18 44.57   libldap-common libldb2 liblerc4 libllvm15 liblmdb0 liblwp-mediatypes-perl
+2026-Jun-08 17:39:02.375677
+#18 44.57   liblwp-protocol-https-perl libmailtools-perl libminizip1 libmp3lame0 libmpc3
+2026-Jun-08 17:39:02.375677
+#18 44.57   libmpfr6 libmpg123-0 libncursesw6 libnet-dbus-perl libnet-http-perl
+2026-Jun-08 17:39:02.375677
+#18 44.57   libnet-smtp-ssl-perl libnet-ssleay-perl libnotify4 libnsl2 libnss-mdns
+2026-Jun-08 17:39:02.375677
+#18 44.57   libnss-systemd libogg0 libopenh264-7 libopenjp2-7 libopus0
+2026-Jun-08 17:39:02.375677
+#18 44.57   libpackagekit-glib2-18 libpam-systemd libpango-1.0-0 libpangocairo-1.0-0
+2026-Jun-08 17:39:02.375677
+#18 44.57   libpangoft2-1.0-0 libpangoxft-1.0-0 libpciaccess0 libperl5.36 libpixman-1-0
+2026-Jun-08 17:39:02.375677
+#18 44.57   libpng16-16 libpolkit-agent-1-0 libpolkit-gobject-1-0 libpopt0 libproc2-0
+2026-Jun-08 17:39:02.375677
+#18 44.57   libpulse0 libpython3-stdlib libpython3.11-minimal libpython3.11-stdlib
+2026-Jun-08 17:39:02.375677
+#18 44.57   libreadline8 libregexp-ipv6-perl librsvg2-2 librsvg2-common libsasl2-2
+2026-Jun-08 17:39:02.375677
+#18 44.57   libsasl2-modules libsasl2-modules-db libsecret-1-0 libsecret-common
+2026-Jun-08 17:39:02.375677
+#18 44.57   libsensors-config libsensors5 libsm6 libsmbclient libsndfile1 libsqlite3-0
+2026-Jun-08 17:39:02.375677
+#18 44.57   libssl3 libsystemd-shared libtalloc2 libtdb1 libtevent0 libtext-iconv-perl
+2026-Jun-08 17:39:02.375677
+#18 44.57   libthai-data libthai0 libtie-ixhash-perl libtiff6 libtimedate-perl
+2026-Jun-08 17:39:02.375677
+#18 44.57   libtirpc-common libtirpc3 libtry-tiny-perl libupower-glib3 liburi-perl
+2026-Jun-08 17:39:02.375677
+#18 44.57   libusb-1.0-0 libvorbis0a libvorbisenc2 libwayland-client0 libwayland-cursor0
+2026-Jun-08 17:39:02.375677
+#18 44.57   libwayland-egl1 libwayland-server0 libwbclient0 libwebp7 libwww-perl
+2026-Jun-08 17:39:02.375677
+#18 44.57   libwww-robotrules-perl libx11-6 libx11-data libx11-protocol-perl libxau6
+2026-Jun-08 17:39:02.375677
+#18 44.57   libxaw7 libxcb-dri2-0 libxcb-dri3-0 libxcb-glx0 libxcb-present0
+2026-Jun-08 17:39:02.375677
+#18 44.57   libxcb-randr0 libxcb-render0 libxcb-shape0 libxcb-shm0 libxcb-sync1
+2026-Jun-08 17:39:02.375677
+#18 44.57   libxcb-xfixes0 libxcb1 libxcursor1 libxdmcp6 libxext6 libxfixes3 libxft2
+2026-Jun-08 17:39:02.375677
+#18 44.57   libxi6 libxinerama1 libxkbcommon0 libxkbfile1 libxml-parser-perl
+2026-Jun-08 17:39:02.375677
+#18 44.57   libxml-twig-perl libxml-xpathengine-perl libxml2 libxmu6 libxmuu1
+2026-Jun-08 17:39:02.375677
+#18 44.57   libxnvctrl0 libxpm4 libxrender1 libxshmfence1 libxt6 libxtst6 libxv1
+2026-Jun-08 17:39:02.375677
+#18 44.57   libxxf86dga1 libxxf86vm1 libz3-4 media-types netbase notification-daemon
+2026-Jun-08 17:39:02.375677
+#18 44.57   openssl perl perl-modules-5.36 perl-openssl-defaults polkitd procps psmisc
+2026-Jun-08 17:39:02.375677
+#18 44.57   python3 python3-cairo python3-cups python3-cupshelpers python3-dbus
+2026-Jun-08 17:39:02.375677
+#18 44.58   python3-gi python3-minimal python3-smbc python3.11 python3.11-minimal
+2026-Jun-08 17:39:02.375677
+#18 44.58   readline-common samba-libs sgml-base shared-mime-info system-config-printer
+2026-Jun-08 17:39:02.375677
+#18 44.58   system-config-printer-common system-config-printer-udev systemd systemd-sysv
+2026-Jun-08 17:39:02.375677
+#18 44.58   systemd-timesyncd udev upower x11-common x11-utils x11-xserver-utils
+2026-Jun-08 17:39:02.375677
+#18 44.58   xdg-user-dirs xkb-data xml-core zutty
+2026-Jun-08 17:39:02.375677
+#18 44.60 Suggested packages:
+2026-Jun-08 17:39:02.375677
+#18 44.60   avahi-autoipd chromium-l10n chromium-shell chromium-driver cpp-doc
+2026-Jun-08 17:39:02.375677
+#18 44.60   gcc-12-locales cpp-12-doc libasound2-plugins alsa-utils libdigest-hmac-perl
+2026-Jun-08 17:39:02.375677
+#18 44.60   libgssapi-perl colord cups-common gdbm-l10n low-memory-monitor gpm krb5-doc
+2026-Jun-08 17:39:02.375677
+#18 44.60   krb5-user gvfs liblcms2-utils libcrypt-ssleay-perl avahi-autoipd | zeroconf
+2026-Jun-08 17:39:02.375677
+#18 44.60   opus-tools pciutils sensible-utils pulseaudio librsvg2-bin
+2026-Jun-08 17:39:02.375677
+#18 44.60   libsasl2-modules-gssapi-mit | libsasl2-modules-gssapi-heimdal
+2026-Jun-08 17:39:02.375677
+#18 44.60   libsasl2-modules-ldap libsasl2-modules-otp libsasl2-modules-sql lm-sensors
+2026-Jun-08 17:39:02.375677
+#18 44.60   libsub-name-perl libbusiness-isbn-perl libauthen-ntlm-perl
+2026-Jun-08 17:39:02.375677
+#18 44.60   libunicode-map8-perl libunicode-string-perl xml-twig-tools perl-doc
+2026-Jun-08 17:39:02.375677
+#18 44.60   libterm-readline-gnu-perl | libterm-readline-perl-perl make
+2026-Jun-08 17:39:02.375677
+#18 44.60   libtap-harness-archive-perl debhelper polkitd-pkla python3-doc python3-tk
+2026-Jun-08 17:39:02.375677
+#18 44.60   python3-venv python-dbus-doc python3.11-venv python3.11-doc binutils
+2026-Jun-08 17:39:02.375677
+#18 44.60   binfmt-support readline-doc sgml-base-doc gnome-software systemd-container
+2026-Jun-08 17:39:02.375677
+#18 44.60   systemd-homed systemd-userdbd systemd-boot systemd-resolved libfido2-1
+2026-Jun-08 17:39:02.375677
+#18 44.60   libqrencode4 libtss2-esys-3.0.2-0 libtss2-mu0 libtss2-rc0 mesa-utils nickle
+2026-Jun-08 17:39:02.375677
+#18 44.60   cairo-5c xorg-docs-core
+2026-Jun-08 17:39:02.375677
+#18 ...
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#19 [openwa-api builder 3/7] RUN apt-get update && apt-get install -y     python3     make     g++     && rm -rf /var/lib/apt/lists/*
+2026-Jun-08 17:39:02.375677
+#19 56.16 Get:53 http://deb.debian.org/debian bookworm/main amd64 gcc amd64 4:12.2.0-3 [5216 B]
+2026-Jun-08 17:39:02.375677
+#19 56.17 Get:54 http://deb.debian.org/debian bookworm/main amd64 libc-dev-bin amd64 2.36-9+deb12u14 [48.1 kB]
+2026-Jun-08 17:39:02.375677
+#19 56.20 Get:55 http://deb.debian.org/debian-security bookworm-security/main amd64 linux-libc-dev amd64 6.1.174-1 [2272 kB]
+2026-Jun-08 17:39:02.375677
+#19 56.40 Get:56 http://deb.debian.org/debian bookworm/main amd64 libcrypt-dev amd64 1:4.4.33-2 [118 kB]
+2026-Jun-08 17:39:02.375677
+#19 56.41 Get:57 http://deb.debian.org/debian bookworm/main amd64 libtirpc-dev amd64 1.3.3+ds-1 [191 kB]
+2026-Jun-08 17:39:02.375677
+#19 56.44 Get:58 http://deb.debian.org/debian bookworm/main amd64 libnsl-dev amd64 1.3.0-2 [66.4 kB]
+2026-Jun-08 17:39:02.375677
+#19 56.44 Get:59 http://deb.debian.org/debian bookworm/main amd64 rpcsvc-proto amd64 1.4.3-1 [63.3 kB]
+2026-Jun-08 17:39:02.375677
+#19 56.61 Get:60 http://deb.debian.org/debian bookworm/main amd64 libc6-dev amd64 2.36-9+deb12u14 [1904 kB]
+2026-Jun-08 17:39:02.375677
+#19 56.93 Get:61 http://deb.debian.org/debian bookworm/main amd64 libstdc++-12-dev amd64 12.2.0-14+deb12u1 [2047 kB]
+2026-Jun-08 17:39:02.375677
+#19 57.75 Get:62 http://deb.debian.org/debian bookworm/main amd64 g++-12 amd64 12.2.0-14+deb12u1 [10.7 MB]
+2026-Jun-08 17:39:02.375677
+#19 59.03 Get:63 http://deb.debian.org/debian bookworm/main amd64 g++ amd64 4:12.2.0-3 [1356 B]
+2026-Jun-08 17:39:02.375677
+#19 59.05 Get:64 http://deb.debian.org/debian bookworm/main amd64 libabsl20220623 amd64 20220623.1-1+deb12u2 [391 kB]
+2026-Jun-08 17:39:02.375677
+#19 59.09 Get:65 http://deb.debian.org/debian bookworm/main amd64 libaom3 amd64 3.6.0-1+deb12u2 [1850 kB]
+2026-Jun-08 17:39:02.375677
+#19 59.34 Get:66 http://deb.debian.org/debian bookworm/main amd64 libdav1d6 amd64 1.0.0-2+deb12u1 [513 kB]
+2026-Jun-08 17:39:02.375677
+#19 59.37 Get:67 http://deb.debian.org/debian bookworm/main amd64 libgav1-1 amd64 0.18.0-1+b1 [332 kB]
+2026-Jun-08 17:39:02.375677
+#19 59.41 Get:68 http://deb.debian.org/debian bookworm/main amd64 librav1e0 amd64 0.5.1-6 [763 kB]
+2026-Jun-08 17:39:02.375677
+#19 59.49 Get:69 http://deb.debian.org/debian bookworm/main amd64 libsvtav1enc1 amd64 1.4.1+dfsg-1 [2121 kB]
+2026-Jun-08 17:39:02.375677
+#19 59.72 Get:70 http://deb.debian.org/debian bookworm/main amd64 libjpeg62-turbo amd64 1:2.1.5-2 [166 kB]
+2026-Jun-08 17:39:02.375677
+#19 59.74 Get:71 http://deb.debian.org/debian bookworm/main amd64 libyuv0 amd64 0.0~git20230123.b2528b0-1 [168 kB]
+2026-Jun-08 17:39:02.375677
+#19 59.76 Get:72 http://deb.debian.org/debian bookworm/main amd64 libavif15 amd64 0.11.1-1+deb12u1 [94.4 kB]
+2026-Jun-08 17:39:02.375677
+#19 59.80 Get:73 http://deb.debian.org/debian bookworm/main amd64 libbrotli1 amd64 1.0.9-2+b6 [275 kB]
+2026-Jun-08 17:39:02.375677
+#19 59.82 Get:74 http://deb.debian.org/debian bookworm/main amd64 libbsd0 amd64 0.11.7-2 [117 kB]
+2026-Jun-08 17:39:02.375677
+#19 59.85 Get:75 http://deb.debian.org/debian bookworm/main amd64 libpng16-16 amd64 1.6.39-2+deb12u5 [277 kB]
+2026-Jun-08 17:39:02.375677
+#19 59.89 Get:76 http://deb.debian.org/debian bookworm/main amd64 libfreetype6 amd64 2.12.1+dfsg-5+deb12u4 [398 kB]
+2026-Jun-08 17:39:02.375677
+#19 59.93 Get:77 http://deb.debian.org/debian bookworm/main amd64 libfontconfig1 amd64 2.14.1-4 [386 kB]
+2026-Jun-08 17:39:02.375677
+#19 59.97 Get:78 http://deb.debian.org/debian bookworm/main amd64 libde265-0 amd64 1.0.11-1+deb12u2 [185 kB]
+2026-Jun-08 17:39:02.375677
+#19 60.00 Get:79 http://deb.debian.org/debian bookworm/main amd64 libnuma1 amd64 2.0.16-1 [21.0 kB]
+2026-Jun-08 17:39:02.375677
+#19 60.01 Get:80 http://deb.debian.org/debian bookworm/main amd64 libx265-199 amd64 3.5-2+b1 [1150 kB]
+2026-Jun-08 17:39:02.375677
+#19 60.16 Get:81 http://deb.debian.org/debian bookworm/main amd64 libheif1 amd64 1.15.1-1+deb12u1 [215 kB]
+2026-Jun-08 17:39:02.375677
+#19 60.19 Get:82 http://deb.debian.org/debian bookworm/main amd64 libdeflate0 amd64 1.14-1 [61.4 kB]
+2026-Jun-08 17:39:02.375677
+#19 60.21 Get:83 http://deb.debian.org/debian bookworm/main amd64 libjbig0 amd64 2.1-6.1 [31.7 kB]
+2026-Jun-08 17:39:02.375677
+#19 60.22 Get:84 http://deb.debian.org/debian bookworm/main amd64 liblerc4 amd64 4.0.0+ds-2 [170 kB]
+2026-Jun-08 17:39:02.375677
+#19 60.25 Get:85 http://deb.debian.org/debian bookworm/main amd64 libwebp7 amd64 1.2.4-0.2+deb12u1 [286 kB]
+2026-Jun-08 17:39:02.375677
+#19 60.29 Get:86 http://deb.debian.org/debian bookworm/main amd64 libtiff6 amd64 4.5.0-6+deb12u4 [316 kB]
+2026-Jun-08 17:39:02.375677
+#19 60.32 Get:87 http://deb.debian.org/debian bookworm/main amd64 libxau6 amd64 1:1.0.9-1 [19.7 kB]
+2026-Jun-08 17:39:02.375677
+#19 60.33 Get:88 http://deb.debian.org/debian bookworm/main amd64 libxdmcp6 amd64 1:1.1.2-3 [26.3 kB]
+2026-Jun-08 17:39:02.375677
+#19 60.35 Get:89 http://deb.debian.org/debian bookworm/main amd64 libxcb1 amd64 1.15-1 [144 kB]
+2026-Jun-08 17:39:02.375677
+#19 60.36 Get:90 http://deb.debian.org/debian bookworm/main amd64 libx11-data all 2:1.8.4-2+deb12u2 [292 kB]
+2026-Jun-08 17:39:02.375677
+#19 60.41 Get:91 http://deb.debian.org/debian bookworm/main amd64 libx11-6 amd64 2:1.8.4-2+deb12u2 [760 kB]
+2026-Jun-08 17:39:02.375677
+#19 60.51 Get:92 http://deb.debian.org/debian bookworm/main amd64 libxpm4 amd64 1:3.5.12-1.1+deb12u1 [48.6 kB]
+2026-Jun-08 17:39:02.375677
+#19 60.52 Get:93 http://deb.debian.org/debian bookworm/main amd64 libgd3 amd64 2.3.3-9 [124 kB]
+2026-Jun-08 17:39:02.375677
+#19 60.54 Get:94 http://deb.debian.org/debian bookworm/main amd64 libc-devtools amd64 2.36-9+deb12u14 [55.7 kB]
+2026-Jun-08 17:39:02.375677
+#19 60.54 Get:95 http://deb.debian.org/debian bookworm/main amd64 libgpm2 amd64 1.20.7-10+b1 [14.2 kB]
+2026-Jun-08 17:39:02.375677
+#19 60.59 Get:96 http://deb.debian.org/debian bookworm/main amd64 make amd64 4.3-4.1 [396 kB]
+2026-Jun-08 17:39:02.375677
+#19 61.16 Get:97 http://deb.debian.org/debian bookworm/main amd64 manpages-dev all 6.03-2 [2030 kB]
+2026-Jun-08 17:39:02.375677
+#19 ...
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#18 [openwa-api production 2/8] RUN apt-get update && apt-get install -y     chromium     fonts-liberation     libappindicator3-1     libasound2     libatk-bridge2.0-0     libatk1.0-0     libcups2     libdbus-1-3     libdrm2     libgbm1     libgtk-3-0     libnspr4     libnss3     libx11-xcb1     libxcomposite1     libxdamage1     libxrandr2     xdg-utils     dumb-init     && rm -rf /var/lib/apt/lists/*
+2026-Jun-08 17:39:02.375677
+#18 62.63 The following NEW packages will be installed:
+2026-Jun-08 17:39:02.375677
+#18 62.63   adwaita-icon-theme alsa-topology-conf alsa-ucm-conf at-spi2-common
+2026-Jun-08 17:39:02.375677
+#18 62.63   at-spi2-core avahi-daemon avahi-utils ca-certificates chromium
+2026-Jun-08 17:39:02.375677
+#18 62.63   chromium-common chromium-sandbox cpp cpp-12 cups-pk-helper dbus dbus-bin
+2026-Jun-08 17:39:02.375677
+#18 62.63   dbus-daemon dbus-session-bus-common dbus-system-bus-common dbus-user-session
+2026-Jun-08 17:39:02.375677
+#18 62.63   dconf-gsettings-backend dconf-service dmsetup dumb-init fontconfig
+2026-Jun-08 17:39:02.375677
+#18 62.63   fontconfig-config fonts-liberation gir1.2-atk-1.0 gir1.2-freedesktop
+2026-Jun-08 17:39:02.375677
+#18 62.63   gir1.2-gdkpixbuf-2.0 gir1.2-glib-2.0 gir1.2-gtk-3.0 gir1.2-handy-1
+2026-Jun-08 17:39:02.375677
+#18 62.63   gir1.2-harfbuzz-0.0 gir1.2-notify-0.7 gir1.2-packagekitglib-1.0
+2026-Jun-08 17:39:02.375677
+#18 62.63   gir1.2-pango-1.0 gir1.2-polkit-1.0 gir1.2-secret-1 gsettings-desktop-schemas
+2026-Jun-08 17:39:02.375677
+#18 62.63   gtk-update-icon-cache hicolor-icon-theme krb5-locales libapparmor1
+2026-Jun-08 17:39:02.375677
+#18 62.63   libargon2-1 libasound2 libasound2-data libasyncns0 libatk-bridge2.0-0
+2026-Jun-08 17:39:02.375677
+#18 62.63   libatk1.0-0 libatspi2.0-0 libauthen-sasl-perl libavahi-client3
+2026-Jun-08 17:39:02.375677
+#18 62.63   libavahi-common-data libavahi-common3 libavahi-core7
+2026-Jun-08 17:39:02.375677
+#18 62.63   libayatana-appindicator3-1 libayatana-ido3-0.4-0 libayatana-indicator3-7
+2026-Jun-08 17:39:02.375677
+#18 62.63   libbrotli1 libbsd0 libcairo-gobject2 libcairo2 libclone-perl libcolord2
+2026-Jun-08 17:39:02.375677
+#18 62.63   libcryptsetup12 libcups2 libdaemon0 libdata-dump-perl libdatrie1 libdav1d6
+2026-Jun-08 17:39:02.375677
+#18 62.64   libdbus-1-3 libdbusmenu-glib4 libdbusmenu-gtk3-4 libdconf1 libdeflate0
+2026-Jun-08 17:39:02.375677
+#18 62.64   libdevmapper1.02.1 libdouble-conversion3 libdrm-amdgpu1 libdrm-common
+2026-Jun-08 17:39:02.375677
+#18 62.64   libdrm-intel1 libdrm-nouveau2 libdrm-radeon1 libdrm2 libduktape207 libedit2
+2026-Jun-08 17:39:02.375677
+#18 62.64   libegl-mesa0 libegl1 libelf1 libencode-locale-perl libepoxy0 libexpat1
+2026-Jun-08 17:39:02.375677
+#18 62.64   libfdisk1 libfile-basedir-perl libfile-desktopentry-perl
+2026-Jun-08 17:39:02.375677
+#18 62.64   libfile-listing-perl libfile-mimeinfo-perl libflac12 libfont-afm-perl
+2026-Jun-08 17:39:02.375677
+#18 62.64   libfontconfig1 libfontenc1 libfreetype6 libfribidi0 libgbm1 libgdbm-compat4
+2026-Jun-08 17:39:02.375677
+#18 62.64   libgdbm6 libgdk-pixbuf-2.0-0 libgdk-pixbuf2.0-bin libgdk-pixbuf2.0-common
+2026-Jun-08 17:39:02.375677
+#18 62.64   libgirepository-1.0-1 libgl1 libgl1-mesa-dri libglapi-mesa libgles2
+2026-Jun-08 17:39:02.375677
+#18 62.64   libglib2.0-0 libglib2.0-data libglvnd0 libglx-mesa0 libglx0 libgpm2
+2026-Jun-08 17:39:02.375677
+#18 62.64   libgraphite2-3 libgssapi-krb5-2 libgtk-3-0 libgtk-3-bin libgtk-3-common
+2026-Jun-08 17:39:02.375677
+#18 62.64   libgudev-1.0-0 libhandy-1-0 libharfbuzz-subset0 libharfbuzz0b
+2026-Jun-08 17:39:02.375677
+#18 62.64   libhtml-form-perl libhtml-format-perl libhtml-parser-perl
+2026-Jun-08 17:39:02.375677
+#18 62.64   libhtml-tagset-perl libhtml-tree-perl libhttp-cookies-perl
+2026-Jun-08 17:39:02.375677
+#18 62.64   libhttp-daemon-perl libhttp-date-perl libhttp-message-perl
+2026-Jun-08 17:39:02.375677
+#18 62.65   libhttp-negotiate-perl libice6 libicu72 libio-html-perl
+2026-Jun-08 17:39:02.375677
+#18 62.65   libio-socket-ssl-perl libio-stringy-perl libip4tc2 libipc-system-simple-perl
+2026-Jun-08 17:39:02.375677
+#18 62.65   libisl23 libjansson4 libjbig0 libjpeg62-turbo libjson-c5 libk5crypto3
+2026-Jun-08 17:39:02.375677
+#18 62.65   libkeyutils1 libkmod2 libkrb5-3 libkrb5support0 liblcms2-2 libldap-2.5-0
+2026-Jun-08 17:39:02.375677
+#18 62.65   libldap-common libldb2 liblerc4 libllvm15 liblmdb0 liblwp-mediatypes-perl
+2026-Jun-08 17:39:02.375677
+#18 62.65   liblwp-protocol-https-perl libmailtools-perl libminizip1 libmp3lame0 libmpc3
+2026-Jun-08 17:39:02.375677
+#18 62.65   libmpfr6 libmpg123-0 libncursesw6 libnet-dbus-perl libnet-http-perl
+2026-Jun-08 17:39:02.375677
+#18 62.65   libnet-smtp-ssl-perl libnet-ssleay-perl libnotify4 libnsl2 libnspr4
+2026-Jun-08 17:39:02.375677
+#18 62.65   libnss-mdns libnss-systemd libnss3 libogg0 libopenh264-7 libopenjp2-7
+2026-Jun-08 17:39:02.375677
+#18 62.65   libopus0 libpackagekit-glib2-18 libpam-systemd libpango-1.0-0
+2026-Jun-08 17:39:02.375677
+#18 62.65   libpangocairo-1.0-0 libpangoft2-1.0-0 libpangoxft-1.0-0 libpciaccess0
+2026-Jun-08 17:39:02.375677
+#18 62.65   libperl5.36 libpixman-1-0 libpng16-16 libpolkit-agent-1-0
+2026-Jun-08 17:39:02.375677
+#18 62.65   libpolkit-gobject-1-0 libpopt0 libproc2-0 libpulse0 libpython3-stdlib
+2026-Jun-08 17:39:02.375677
+#18 62.65   libpython3.11-minimal libpython3.11-stdlib libreadline8 libregexp-ipv6-perl
+2026-Jun-08 17:39:02.375677
+#18 62.65   librsvg2-2 librsvg2-common libsasl2-2 libsasl2-modules libsasl2-modules-db
+2026-Jun-08 17:39:02.375677
+#18 62.65   libsecret-1-0 libsecret-common libsensors-config libsensors5 libsm6
+2026-Jun-08 17:39:02.375677
+#18 62.65   libsmbclient libsndfile1 libsqlite3-0 libssl3 libsystemd-shared libtalloc2
+2026-Jun-08 17:39:02.375677
+#18 62.65   libtdb1 libtevent0 libtext-iconv-perl libthai-data libthai0
+2026-Jun-08 17:39:02.375677
+#18 62.65   libtie-ixhash-perl libtiff6 libtimedate-perl libtirpc-common libtirpc3
+2026-Jun-08 17:39:02.375677
+#18 62.65   libtry-tiny-perl libupower-glib3 liburi-perl libusb-1.0-0 libvorbis0a
+2026-Jun-08 17:39:02.375677
+#18 62.65   libvorbisenc2 libwayland-client0 libwayland-cursor0 libwayland-egl1
+2026-Jun-08 17:39:02.375677
+#18 62.65   libwayland-server0 libwbclient0 libwebp7 libwww-perl libwww-robotrules-perl
+2026-Jun-08 17:39:02.375677
+#18 62.65   libx11-6 libx11-data libx11-protocol-perl libx11-xcb1 libxau6 libxaw7
+2026-Jun-08 17:39:02.375677
+#18 62.65   libxcb-dri2-0 libxcb-dri3-0 libxcb-glx0 libxcb-present0 libxcb-randr0
+2026-Jun-08 17:39:02.375677
+#18 62.65   libxcb-render0 libxcb-shape0 libxcb-shm0 libxcb-sync1 libxcb-xfixes0 libxcb1
+2026-Jun-08 17:39:02.375677
+#18 62.65   libxcomposite1 libxcursor1 libxdamage1 libxdmcp6 libxext6 libxfixes3 libxft2
+2026-Jun-08 17:39:02.375677
+#18 62.65   libxi6 libxinerama1 libxkbcommon0 libxkbfile1 libxml-parser-perl
+2026-Jun-08 17:39:02.375677
+#18 62.65   libxml-twig-perl libxml-xpathengine-perl libxml2 libxmu6 libxmuu1
+2026-Jun-08 17:39:02.375677
+#18 62.65   libxnvctrl0 libxpm4 libxrandr2 libxrender1 libxshmfence1 libxt6 libxtst6
+2026-Jun-08 17:39:02.375677
+#18 62.65   libxv1 libxxf86dga1 libxxf86vm1 libz3-4 media-types netbase
+2026-Jun-08 17:39:02.375677
+#18 62.65   notification-daemon openssl perl perl-modules-5.36 perl-openssl-defaults
+2026-Jun-08 17:39:02.375677
+#18 62.66   polkitd procps psmisc python3 python3-cairo python3-cups python3-cupshelpers
+2026-Jun-08 17:39:02.375677
+#18 62.66   python3-dbus python3-gi python3-minimal python3-smbc python3.11
+2026-Jun-08 17:39:02.375677
+#18 62.66   python3.11-minimal readline-common samba-libs sgml-base shared-mime-info
+2026-Jun-08 17:39:02.375677
+#18 62.66   system-config-printer system-config-printer-common
+2026-Jun-08 17:39:02.375677
+#18 62.66   system-config-printer-udev systemd systemd-sysv systemd-timesyncd udev
+2026-Jun-08 17:39:02.375677
+#18 62.66   upower x11-common x11-utils x11-xserver-utils xdg-user-dirs xdg-utils
+2026-Jun-08 17:39:02.375677
+#18 62.66   xkb-data xml-core zutty
+2026-Jun-08 17:39:02.375677
+#18 63.47 0 upgraded, 331 newly installed, 0 to remove and 2 not upgraded.
+2026-Jun-08 17:39:02.375677
+#18 63.47 Need to get 246 MB of archives.
+2026-Jun-08 17:39:02.375677
+#18 63.47 After this operation, 927 MB of additional disk space will be used.
+2026-Jun-08 17:39:02.375677
+#18 63.47 Get:1 http://deb.debian.org/debian bookworm/main amd64 libssl3 amd64 3.0.20-1~deb12u1 [2034 kB]
+2026-Jun-08 17:39:02.375677
+#18 63.67 Get:2 http://deb.debian.org/debian bookworm/main amd64 libargon2-1 amd64 0~20171227-0.3+deb12u1 [19.4 kB]
+2026-Jun-08 17:39:02.375677
+#18 63.69 Get:3 http://deb.debian.org/debian bookworm/main amd64 dmsetup amd64 2:1.02.185-2 [82.0 kB]
+2026-Jun-08 17:39:02.375677
+#18 63.70 Get:4 http://deb.debian.org/debian bookworm/main amd64 libdevmapper1.02.1 amd64 2:1.02.185-2 [133 kB]
+2026-Jun-08 17:39:02.375677
+#18 63.74 Get:5 http://deb.debian.org/debian bookworm/main amd64 libjson-c5 amd64 0.16-2 [44.1 kB]
+2026-Jun-08 17:39:02.375677
+#18 63.75 Get:6 http://deb.debian.org/debian bookworm/main amd64 libcryptsetup12 amd64 2:2.6.1-4~deb12u2 [223 kB]
+2026-Jun-08 17:39:02.375677
+#18 64.05 Get:7 http://deb.debian.org/debian bookworm/main amd64 libfdisk1 amd64 2.38.1-5+deb12u3 [194 kB]
+2026-Jun-08 17:39:02.375677
+#18 64.09 Get:8 http://deb.debian.org/debian bookworm/main amd64 libkmod2 amd64 30+20221128-1 [57.9 kB]
+2026-Jun-08 17:39:02.375677
+#18 64.10 Get:9 http://deb.debian.org/debian bookworm/main amd64 libapparmor1 amd64 3.0.8-3 [41.2 kB]
+2026-Jun-08 17:39:02.375677
+#18 64.12 Get:10 http://deb.debian.org/debian bookworm/main amd64 libip4tc2 amd64 1.8.9-2 [19.0 kB]
+2026-Jun-08 17:39:02.375677
+#18 64.15 Get:11 http://deb.debian.org/debian bookworm/main amd64 libsystemd-shared amd64 252.39-1~deb12u2 [1696 kB]
+2026-Jun-08 17:39:02.375677
+#18 64.36 Get:12 http://deb.debian.org/debian bookworm/main amd64 systemd amd64 252.39-1~deb12u2 [3044 kB]
+2026-Jun-08 17:39:02.375677
+#18 64.66 Get:13 http://deb.debian.org/debian bookworm/main amd64 systemd-sysv amd64 252.39-1~deb12u2 [42.9 kB]
+2026-Jun-08 17:39:02.375677
+#18 64.67 Get:14 http://deb.debian.org/debian bookworm/main amd64 libdbus-1-3 amd64 1.14.10-1~deb12u1 [201 kB]
+2026-Jun-08 17:39:02.375677
+#18 64.69 Get:15 http://deb.debian.org/debian bookworm/main amd64 dbus-bin amd64 1.14.10-1~deb12u1 [105 kB]
+2026-Jun-08 17:39:02.375677
+#18 64.72 Get:16 http://deb.debian.org/debian bookworm/main amd64 dbus-session-bus-common all 1.14.10-1~deb12u1 [78.2 kB]
+2026-Jun-08 17:39:02.375677
+#18 64.72 Get:17 http://deb.debian.org/debian bookworm/main amd64 libexpat1 amd64 2.5.0-1+deb12u2 [99.9 kB]
+2026-Jun-08 17:39:02.375677
+#18 64.75 Get:18 http://deb.debian.org/debian bookworm/main amd64 dbus-daemon amd64 1.14.10-1~deb12u1 [184 kB]
+2026-Jun-08 17:39:02.375677
+#18 64.77 Get:19 http://deb.debian.org/debian bookworm/main amd64 dbus-system-bus-common all 1.14.10-1~deb12u1 [79.3 kB]
+2026-Jun-08 17:39:02.375677
+#18 64.77 Get:20 http://deb.debian.org/debian bookworm/main amd64 dbus amd64 1.14.10-1~deb12u1 [97.4 kB]
+2026-Jun-08 17:39:02.375677
+#18 64.86 Get:21 http://deb.debian.org/debian bookworm/main amd64 perl-modules-5.36 all 5.36.0-7+deb12u3 [2815 kB]
+2026-Jun-08 17:39:02.375677
+#18 65.22 Get:22 http://deb.debian.org/debian bookworm/main amd64 libgdbm6 amd64 1.23-3 [72.2 kB]
+2026-Jun-08 17:39:02.375677
+#18 65.23 Get:23 http://deb.debian.org/debian bookworm/main amd64 libgdbm-compat4 amd64 1.23-3 [48.2 kB]
+2026-Jun-08 17:39:02.375677
+#18 65.37 Get:24 http://deb.debian.org/debian bookworm/main amd64 libperl5.36 amd64 5.36.0-7+deb12u3 [4196 kB]
+2026-Jun-08 17:39:02.375677
+#18 65.94 Get:25 http://deb.debian.org/debian bookworm/main amd64 perl amd64 5.36.0-7+deb12u3 [239 kB]
+2026-Jun-08 17:39:02.375677
+#18 66.02 Get:26 http://deb.debian.org/debian bookworm/main amd64 libpython3.11-minimal amd64 3.11.2-6+deb12u7 [818 kB]
+2026-Jun-08 17:39:02.375677
+#18 66.11 Get:27 http://deb.debian.org/debian bookworm/main amd64 python3.11-minimal amd64 3.11.2-6+deb12u7 [2066 kB]
+2026-Jun-08 17:39:02.375677
+#18 66.39 Get:28 http://deb.debian.org/debian bookworm/main amd64 python3-minimal amd64 3.11.2-1+b1 [26.3 kB]
+2026-Jun-08 17:39:02.375677
+#18 66.42 Get:29 http://deb.debian.org/debian bookworm/main amd64 media-types all 10.0.0 [26.1 kB]
+2026-Jun-08 17:39:02.375677
+#18 66.44 Get:30 http://deb.debian.org/debian bookworm/main amd64 libncursesw6 amd64 6.4-4 [134 kB]
+2026-Jun-08 17:39:02.375677
+#18 66.47 Get:31 http://deb.debian.org/debian-security bookworm-security/main amd64 libkrb5support0 amd64 1.20.1-2+deb12u5 [33.2 kB]
+2026-Jun-08 17:39:02.375677
+#18 66.47 Get:32 http://deb.debian.org/debian-security bookworm-security/main amd64 libk5crypto3 amd64 1.20.1-2+deb12u5 [79.7 kB]
+2026-Jun-08 17:39:02.375677
+#18 66.50 Get:33 http://deb.debian.org/debian bookworm/main amd64 libkeyutils1 amd64 1.6.3-2 [8808 B]
+2026-Jun-08 17:39:02.375677
+#18 66.53 Get:34 http://deb.debian.org/debian-security bookworm-security/main amd64 libkrb5-3 amd64 1.20.1-2+deb12u5 [332 kB]
+2026-Jun-08 17:39:02.375677
+#18 66.57 Get:35 http://deb.debian.org/debian-security bookworm-security/main amd64 libgssapi-krb5-2 amd64 1.20.1-2+deb12u5 [135 kB]
+2026-Jun-08 17:39:02.375677
+#18 66.59 Get:36 http://deb.debian.org/debian bookworm/main amd64 libtirpc-common all 1.3.3+ds-1 [14.0 kB]
+2026-Jun-08 17:39:02.375677
+#18 66.61 Get:37 http://deb.debian.org/debian bookworm/main amd64 libtirpc3 amd64 1.3.3+ds-1 [85.2 kB]
+2026-Jun-08 17:39:02.375677
+#18 66.61 Get:38 http://deb.debian.org/debian bookworm/main amd64 libnsl2 amd64 1.3.0-2 [39.5 kB]
+2026-Jun-08 17:39:02.375677
+#18 66.65 Get:39 http://deb.debian.org/debian bookworm/main amd64 readline-common all 8.2-1.3 [69.0 kB]
+2026-Jun-08 17:39:02.375677
+#18 66.65 Get:40 http://deb.debian.org/debian bookworm/main amd64 libreadline8 amd64 8.2-1.3 [166 kB]
+2026-Jun-08 17:39:02.375677
+#18 66.68 Get:41 http://deb.debian.org/debian bookworm/main amd64 libsqlite3-0 amd64 3.40.1-2+deb12u2 [839 kB]
+2026-Jun-08 17:39:02.375677
+#18 66.79 Get:42 http://deb.debian.org/debian bookworm/main amd64 libpython3.11-stdlib amd64 3.11.2-6+deb12u7 [1797 kB]
+2026-Jun-08 17:39:02.375677
+#18 67.03 Get:43 http://deb.debian.org/debian bookworm/main amd64 python3.11 amd64 3.11.2-6+deb12u7 [574 kB]
+2026-Jun-08 17:39:02.375677
+#18 67.10 Get:44 http://deb.debian.org/debian bookworm/main amd64 libpython3-stdlib amd64 3.11.2-1+b1 [9312 B]
+2026-Jun-08 17:39:02.375677
+#18 67.12 Get:45 http://deb.debian.org/debian bookworm/main amd64 python3 amd64 3.11.2-1+b1 [26.3 kB]
+2026-Jun-08 17:39:02.375677
+#18 67.12 Get:46 http://deb.debian.org/debian bookworm/main amd64 sgml-base all 1.31 [15.4 kB]
+2026-Jun-08 17:39:02.375677
+#18 67.13 Get:47 http://deb.debian.org/debian bookworm/main amd64 netbase all 6.4 [12.8 kB]
+2026-Jun-08 17:39:02.375677
+#18 67.13 Get:48 http://deb.debian.org/debian bookworm/main amd64 libproc2-0 amd64 2:4.0.2-3 [62.8 kB]
+2026-Jun-08 17:39:02.375677
+#18 67.16 Get:49 http://deb.debian.org/debian bookworm/main amd64 procps amd64 2:4.0.2-3 [709 kB]
+2026-Jun-08 17:39:02.375677
+#18 67.29 Get:50 http://deb.debian.org/debian bookworm/main amd64 udev amd64 252.39-1~deb12u2 [1721 kB]
+2026-Jun-08 17:39:02.375677
+#18 67.50 Get:51 http://deb.debian.org/debian bookworm/main amd64 openssl amd64 3.0.20-1~deb12u1 [1438 kB]
+2026-Jun-08 17:39:02.375677
+#18 67.66 Get:52 http://deb.debian.org/debian bookworm/main amd64 ca-certificates all 20230311+deb12u1 [155 kB]
+2026-Jun-08 17:39:02.375677
+#18 67.69 Get:53 http://deb.debian.org/debian-security bookworm-security/main amd64 krb5-locales all 1.20.1-2+deb12u5 [63.5 kB]
+2026-Jun-08 17:39:02.375677
+#18 67.71 Get:54 http://deb.debian.org/debian bookworm/main amd64 libnss-systemd amd64 252.39-1~deb12u2 [164 kB]
+2026-Jun-08 17:39:02.375677
+#18 67.73 Get:55 http://deb.debian.org/debian bookworm/main amd64 libpam-systemd amd64 252.39-1~deb12u2 [226 kB]
+2026-Jun-08 17:39:02.375677
+#18 67.77 Get:56 http://deb.debian.org/debian bookworm/main amd64 systemd-timesyncd amd64 252.39-1~deb12u2 [64.1 kB]
+2026-Jun-08 17:39:02.375677
+#18 67.78 Get:57 http://deb.debian.org/debian bookworm/main amd64 hicolor-icon-theme all 0.17-2 [11.4 kB]
+2026-Jun-08 17:39:02.375677
+#18 67.90 Get:58 http://deb.debian.org/debian bookworm/main amd64 libgdk-pixbuf2.0-common all 2.42.10+dfsg-1+deb12u4 [307 kB]
+2026-Jun-08 17:39:02.375677
+#18 67.91 Get:59 http://deb.debian.org/debian bookworm/main amd64 libglib2.0-0 amd64 2.74.6-2+deb12u9 [1403 kB]
+2026-Jun-08 17:39:02.375677
+#18 68.28 Get:60 http://deb.debian.org/debian bookworm/main amd64 libicu72 amd64 72.1-3+deb12u1 [9376 kB]
+2026-Jun-08 17:39:02.375677
+#18 69.52 Get:61 http://deb.debian.org/debian bookworm/main amd64 libxml2 amd64 2.9.14+dfsg-1.3~deb12u5 [688 kB]
+2026-Jun-08 17:39:02.375677
+#18 69.59 Get:62 http://deb.debian.org/debian bookworm/main amd64 shared-mime-info amd64 2.2-1 [729 kB]
+2026-Jun-08 17:39:02.375677
+#18 69.66 Get:63 http://deb.debian.org/debian bookworm/main amd64 libjpeg62-turbo amd64 1:2.1.5-2 [166 kB]
+2026-Jun-08 17:39:02.375677
+#18 69.69 Get:64 http://deb.debian.org/debian bookworm/main amd64 libpng16-16 amd64 1.6.39-2+deb12u5 [277 kB]
+2026-Jun-08 17:39:02.375677
+#18 69.72 Get:65 http://deb.debian.org/debian bookworm/main amd64 libdeflate0 amd64 1.14-1 [61.4 kB]
+2026-Jun-08 17:39:02.375677
+#18 69.75 Get:66 http://deb.debian.org/debian bookworm/main amd64 libjbig0 amd64 2.1-6.1 [31.7 kB]
+2026-Jun-08 17:39:02.375677
+#18 69.75 Get:67 http://deb.debian.org/debian bookworm/main amd64 liblerc4 amd64 4.0.0+ds-2 [170 kB]
+2026-Jun-08 17:39:02.375677
+#18 69.77 Get:68 http://deb.debian.org/debian bookworm/main amd64 libwebp7 amd64 1.2.4-0.2+deb12u1 [286 kB]
+2026-Jun-08 17:39:02.375677
+#18 69.81 Get:69 http://deb.debian.org/debian bookworm/main amd64 libtiff6 amd64 4.5.0-6+deb12u4 [316 kB]
+2026-Jun-08 17:39:02.375677
+#18 69.84 Get:70 http://deb.debian.org/debian bookworm/main amd64 libgdk-pixbuf-2.0-0 amd64 2.42.10+dfsg-1+deb12u4 [139 kB]
+2026-Jun-08 17:39:02.375677
+#18 69.86 Get:71 http://deb.debian.org/debian bookworm/main amd64 gtk-update-icon-cache amd64 3.24.38-2~deb12u3 [44.2 kB]
+2026-Jun-08 17:39:02.375677
+#18 70.21 Get:72 http://deb.debian.org/debian bookworm/main amd64 adwaita-icon-theme all 43-1 [5124 kB]
+2026-Jun-08 17:39:02.375677
+#18 70.81 Get:73 http://deb.debian.org/debian bookworm/main amd64 alsa-topology-conf all 1.2.5.1-2 [15.2 kB]
+2026-Jun-08 17:39:02.375677
+#18 70.83 Get:74 http://deb.debian.org/debian bookworm/main amd64 libasound2-data all 1.2.8-1 [20.5 kB]
+2026-Jun-08 17:39:02.375677
+#18 70.84 Get:75 http://deb.debian.org/debian bookworm/main amd64 libasound2 amd64 1.2.8-1+b1 [362 kB]
+2026-Jun-08 17:39:02.375677
+#18 70.88 Get:76 http://deb.debian.org/debian bookworm/main amd64 alsa-ucm-conf all 1.2.8-1 [51.7 kB]
+2026-Jun-08 17:39:02.375677
+#18 70.90 Get:77 http://deb.debian.org/debian bookworm/main amd64 at-spi2-common all 2.46.0-5 [162 kB]
+2026-Jun-08 17:39:02.375677
+#18 70.95 Get:78 http://deb.debian.org/debian bookworm/main amd64 libxau6 amd64 1:1.0.9-1 [19.7 kB]
+2026-Jun-08 17:39:02.375677
+#18 70.96 Get:79 http://deb.debian.org/debian bookworm/main amd64 libbsd0 amd64 0.11.7-2 [117 kB]
+2026-Jun-08 17:39:02.375677
+#18 70.97 Get:80 http://deb.debian.org/debian bookworm/main amd64 libxdmcp6 amd64 1:1.1.2-3 [26.3 kB]
+2026-Jun-08 17:39:02.375677
+#18 71.02 Get:81 http://deb.debian.org/debian bookworm/main amd64 libxcb1 amd64 1.15-1 [144 kB]
+2026-Jun-08 17:39:02.375677
+#18 71.04 Get:82 http://deb.debian.org/debian bookworm/main amd64 libx11-data all 2:1.8.4-2+deb12u2 [292 kB]
+2026-Jun-08 17:39:02.375677
+#18 71.09 Get:83 http://deb.debian.org/debian bookworm/main amd64 libx11-6 amd64 2:1.8.4-2+deb12u2 [760 kB]
+2026-Jun-08 17:39:02.375677
+#18 71.21 Get:84 http://deb.debian.org/debian bookworm/main amd64 libxext6 amd64 2:1.3.4-1+b1 [52.9 kB]
+2026-Jun-08 17:39:02.375677
+#18 71.22 Get:85 http://deb.debian.org/debian bookworm/main amd64 libxi6 amd64 2:1.8-1+b1 [84.2 kB]
+2026-Jun-08 17:39:02.375677
+#18 71.24 Get:86 http://deb.debian.org/debian bookworm/main amd64 libatspi2.0-0 amd64 2.46.0-5 [75.4 kB]
+2026-Jun-08 17:39:02.375677
+#18 71.25 Get:87 http://deb.debian.org/debian bookworm/main amd64 x11-common all 1:7.7+23 [252 kB]
+2026-Jun-08 17:39:02.375677
+#18 71.28 Get:88 http://deb.debian.org/debian bookworm/main amd64 libxtst6 amd64 2:1.2.3-1.1 [28.0 kB]
+2026-Jun-08 17:39:02.375677
+#18 71.28 Get:89 http://deb.debian.org/debian bookworm/main amd64 dbus-user-session amd64 1.14.10-1~deb12u1 [78.1 kB]
+2026-Jun-08 17:39:02.375677
+#18 71.29 Get:90 http://deb.debian.org/debian bookworm/main amd64 libdconf1 amd64 0.40.0-4 [40.9 kB]
+2026-Jun-08 17:39:02.375677
+#18 71.30 Get:91 http://deb.debian.org/debian bookworm/main amd64 dconf-service amd64 0.40.0-4 [31.6 kB]
+2026-Jun-08 17:39:02.375677
+#18 71.33 Get:92 http://deb.debian.org/debian bookworm/main amd64 dconf-gsettings-backend amd64 0.40.0-4 [27.8 kB]
+2026-Jun-08 17:39:02.375677
+#18 71.38 Get:93 http://deb.debian.org/debian bookworm/main amd64 gsettings-desktop-schemas all 43.0-1 [643 kB]
+2026-Jun-08 17:39:02.375677
+#18 71.48 Get:94 http://deb.debian.org/debian bookworm/main amd64 at-spi2-core amd64 2.46.0-5 [57.3 kB]
+2026-Jun-08 17:39:02.375677
+#18 71.50 Get:95 http://deb.debian.org/debian bookworm/main amd64 libavahi-common-data amd64 0.8-10+deb12u1 [107 kB]
+2026-Jun-08 17:39:02.375677
+#18 71.50 Get:96 http://deb.debian.org/debian bookworm/main amd64 libavahi-common3 amd64 0.8-10+deb12u1 [42.1 kB]
+2026-Jun-08 17:39:02.375677
+#18 71.51 Get:97 http://deb.debian.org/debian bookworm/main amd64 libavahi-core7 amd64 0.8-10+deb12u1 [103 kB]
+2026-Jun-08 17:39:02.375677
+#18 71.53 Get:98 http://deb.debian.org/debian bookworm/main amd64 libdaemon0 amd64 0.14-7.1 [15.0 kB]
+2026-Jun-08 17:39:02.375677
+#18 71.55 Get:99 http://deb.debian.org/debian bookworm/main amd64 avahi-daemon amd64 0.8-10+deb12u1 [83.0 kB]
+2026-Jun-08 17:39:02.375677
+#18 71.55 Get:100 http://deb.debian.org/debian bookworm/main amd64 libavahi-client3 amd64 0.8-10+deb12u1 [45.8 kB]
+2026-Jun-08 17:39:02.375677
+#18 71.56 Get:101 http://deb.debian.org/debian bookworm/main amd64 avahi-utils amd64 0.8-10+deb12u1 [44.5 kB]
+2026-Jun-08 17:39:02.375677
+#18 71.59 Get:102 http://deb.debian.org/debian bookworm/main amd64 libatk1.0-0 amd64 2.46.0-5 [49.6 kB]
+2026-Jun-08 17:39:02.375677
+#18 71.59 Get:103 http://deb.debian.org/debian bookworm/main amd64 libatk-bridge2.0-0 amd64 2.46.0-5 [64.6 kB]
+2026-Jun-08 17:39:02.375677
+#18 71.62 Get:104 http://deb.debian.org/debian bookworm/main amd64 libbrotli1 amd64 1.0.9-2+b6 [275 kB]
+2026-Jun-08 17:39:02.375677
+#18 71.68 Get:105 http://deb.debian.org/debian bookworm/main amd64 libfreetype6 amd64 2.12.1+dfsg-5+deb12u4 [398 kB]
+2026-Jun-08 17:39:02.375677
+#18 71.76 Get:106 http://deb.debian.org/debian bookworm/main amd64 fonts-liberation all 1:1.07.4-11 [828 kB]
+2026-Jun-08 17:39:02.375677
+#18 71.88 Get:107 http://deb.debian.org/debian bookworm/main amd64 fontconfig-config amd64 2.14.1-4 [315 kB]
+2026-Jun-08 17:39:02.375677
+#18 71.91 Get:108 http://deb.debian.org/debian bookworm/main amd64 libfontconfig1 amd64 2.14.1-4 [386 kB]
+2026-Jun-08 17:39:02.375677
+#18 71.98 Get:109 http://deb.debian.org/debian bookworm/main amd64 libpixman-1-0 amd64 0.42.2-1 [546 kB]
+2026-Jun-08 17:39:02.375677
+#18 72.02 Get:110 http://deb.debian.org/debian bookworm/main amd64 libxcb-render0 amd64 1.15-1 [115 kB]
+2026-Jun-08 17:39:02.375677
+#18 72.03 Get:111 http://deb.debian.org/debian bookworm/main amd64 libxcb-shm0 amd64 1.15-1 [105 kB]
+2026-Jun-08 17:39:02.375677
+#18 72.05 Get:112 http://deb.debian.org/debian bookworm/main amd64 libxrender1 amd64 1:0.9.10-1.1 [33.2 kB]
+2026-Jun-08 17:39:02.375677
+#18 72.08 Get:113 http://deb.debian.org/debian bookworm/main amd64 libcairo2 amd64 1.16.0-7 [575 kB]
+2026-Jun-08 17:39:02.375677
+#18 72.14 Get:114 http://deb.debian.org/debian bookworm/main amd64 libcups2 amd64 2.4.2-3+deb12u9 [245 kB]
+2026-Jun-08 17:39:02.375677
+#18 72.20 Get:115 http://deb.debian.org/debian bookworm/main amd64 libdav1d6 amd64 1.0.0-2+deb12u1 [513 kB]
+2026-Jun-08 17:39:02.375677
+#18 72.28 Get:116 http://deb.debian.org/debian bookworm/main amd64 libdouble-conversion3 amd64 3.2.1-1 [41.5 kB]
+2026-Jun-08 17:39:02.375677
+#18 72.30 Get:117 http://deb.debian.org/debian bookworm/main amd64 libogg0 amd64 1.3.5-3 [23.4 kB]
+2026-Jun-08 17:39:02.375677
+#18 72.32 Get:118 http://deb.debian.org/debian bookworm/main amd64 libflac12 amd64 1.4.2+ds-2 [198 kB]
+2026-Jun-08 17:39:02.375677
+#18 72.35 Get:119 http://deb.debian.org/debian bookworm/main amd64 libdrm-common all 2.4.114-1 [7112 B]
+2026-Jun-08 17:39:02.375677
+#18 72.37 Get:120 http://deb.debian.org/debian bookworm/main amd64 libdrm2 amd64 2.4.114-1+b1 [37.5 kB]
+2026-Jun-08 17:39:02.375677
+#18 72.37 Get:121 http://deb.debian.org/debian bookworm/main amd64 libwayland-server0 amd64 1.21.0-1 [35.9 kB]
+2026-Jun-08 17:39:02.375677
+#18 72.38 Get:122 http://deb.debian.org/debian bookworm/main amd64 libgbm1 amd64 22.3.6-1+deb12u1 [38.0 kB]
+2026-Jun-08 17:39:02.375677
+#18 72.39 Get:123 http://deb.debian.org/debian bookworm/main amd64 libgraphite2-3 amd64 1.3.14-1 [81.2 kB]
+2026-Jun-08 17:39:02.375677
+#18 72.47 Get:124 http://deb.debian.org/debian bookworm/main amd64 libharfbuzz0b amd64 6.0.0+dfsg-3 [1945 kB]
+2026-Jun-08 17:39:02.375677
+#18 72.71 Get:125 http://deb.debian.org/debian bookworm/main amd64 libharfbuzz-subset0 amd64 6.0.0+dfsg-3 [1931 kB]
+2026-Jun-08 17:39:02.375677
+#18 72.90 Get:126 http://deb.debian.org/debian bookworm/main amd64 liblcms2-2 amd64 2.14-2+deb12u1 [154 kB]
+2026-Jun-08 17:39:02.375677
+#18 72.92 Get:127 http://deb.debian.org/debian bookworm/main amd64 libminizip1 amd64 1.1-8+deb12u1 [20.1 kB]
+2026-Jun-08 17:39:02.375677
+#18 72.94 Get:128 http://deb.debian.org/debian bookworm/main amd64 libnspr4 amd64 2:4.35-1 [113 kB]
+2026-Jun-08 17:39:02.375677
+#18 72.98 Get:129 http://deb.debian.org/debian bookworm/main amd64 libnss3 amd64 2:3.87.1-1+deb12u2 [1332 kB]
+2026-Jun-08 17:39:02.375677
+#18 73.15 Get:130 http://deb.debian.org/debian bookworm/main amd64 libopenh264-7 amd64 2.3.1+dfsg-3+deb12u2 [393 kB]
+2026-Jun-08 17:39:02.375677
+#18 73.18 Get:131 http://deb.debian.org/debian-security bookworm-security/main amd64 libopenjp2-7 amd64 2.5.0-2+deb12u3 [189 kB]
+2026-Jun-08 17:39:02.375677
+#18 73.20 Get:132 http://deb.debian.org/debian bookworm/main amd64 libopus0 amd64 1.3.1-3 [195 kB]
+2026-Jun-08 17:39:02.375677
+#18 73.22 Get:133 http://deb.debian.org/debian bookworm/main amd64 fontconfig amd64 2.14.1-4 [449 kB]
+2026-Jun-08 17:39:02.375677
+#18 73.26 Get:134 http://deb.debian.org/debian bookworm/main amd64 libfribidi0 amd64 1.0.8-2.1 [65.0 kB]
+2026-Jun-08 17:39:02.375677
+#18 73.26 Get:135 http://deb.debian.org/debian bookworm/main amd64 libthai-data all 0.1.29-1 [176 kB]
+2026-Jun-08 17:39:02.375677
+#18 73.28 Get:136 http://deb.debian.org/debian bookworm/main amd64 libdatrie1 amd64 0.2.13-2+b1 [43.3 kB]
+2026-Jun-08 17:39:02.375677
+#18 73.28 Get:137 http://deb.debian.org/debian bookworm/main amd64 libthai0 amd64 0.1.29-1 [57.5 kB]
+2026-Jun-08 17:39:02.375677
+#18 73.30 Get:138 http://deb.debian.org/debian bookworm/main amd64 libpango-1.0-0 amd64 1.50.12+ds-1 [212 kB]
+2026-Jun-08 17:39:02.375677
+#18 73.33 Get:139 http://deb.debian.org/debian bookworm/main amd64 libasyncns0 amd64 0.8-6+b3 [12.9 kB]
+2026-Jun-08 17:39:02.375677
+#18 73.35 Get:140 http://deb.debian.org/debian bookworm/main amd64 libmp3lame0 amd64 3.100-6 [365 kB]
+2026-Jun-08 17:39:02.375677
+#18 73.39 Get:141 http://deb.debian.org/debian bookworm/main amd64 libmpg123-0 amd64 1.31.2-1+deb12u1 [147 kB]
+2026-Jun-08 17:39:02.375677
+#18 73.41 Get:142 http://deb.debian.org/debian bookworm/main amd64 libvorbis0a amd64 1.3.7-1 [93.0 kB]
+2026-Jun-08 17:39:02.375677
+#18 73.42 Get:143 http://deb.debian.org/debian bookworm/main amd64 libvorbisenc2 amd64 1.3.7-1 [80.6 kB]
+2026-Jun-08 17:39:02.375677
+#18 73.43 Get:144 http://deb.debian.org/debian bookworm/main amd64 libsndfile1 amd64 1.2.0-1+deb12u1 [197 kB]
+2026-Jun-08 17:39:02.375677
+#18 73.46 Get:145 http://deb.debian.org/debian bookworm/main amd64 libx11-xcb1 amd64 2:1.8.4-2+deb12u2 [192 kB]
+2026-Jun-08 17:39:02.375677
+#18 73.51 Get:146 http://deb.debian.org/debian bookworm/main amd64 libpulse0 amd64 16.1+dfsg1-2+b1 [274 kB]
+2026-Jun-08 17:39:02.375677
+#18 ...
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#16 [dashboard builder 4/6] RUN npm ci --legacy-peer-deps
+2026-Jun-08 17:39:02.375677
+#16 73.60
+2026-Jun-08 17:39:02.375677
+#16 73.60 added 28 packages, and audited 29 packages in 1m
+2026-Jun-08 17:39:02.375677
+#16 73.60
+2026-Jun-08 17:39:02.375677
+#16 73.60 6 packages are looking for funding
+2026-Jun-08 17:39:02.375677
+#16 73.60   run `npm fund` for details
+2026-Jun-08 17:39:02.375677
+#16 73.71
+2026-Jun-08 17:39:02.375677
+#16 73.71 3 vulnerabilities (2 moderate, 1 high)
+2026-Jun-08 17:39:02.375677
+#16 73.71
+2026-Jun-08 17:39:02.375677
+#16 73.71 To address all issues, run:
+2026-Jun-08 17:39:02.375677
+#16 73.71   npm audit fix
+2026-Jun-08 17:39:02.375677
+#16 73.71
+2026-Jun-08 17:39:02.375677
+#16 73.71 Run `npm audit` for details.
+2026-Jun-08 17:39:02.375677
+#16 73.82 npm notice
+2026-Jun-08 17:39:02.375677
+#16 73.82 npm notice New major version of npm available! 10.8.2 -> 11.16.0
+2026-Jun-08 17:39:02.375677
+#16 73.82 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.16.0
+2026-Jun-08 17:39:02.375677
+#16 73.82 npm notice To update run: npm install -g npm@11.16.0
+2026-Jun-08 17:39:02.375677
+#16 73.82 npm notice
+2026-Jun-08 17:39:02.375677
+#16 ...
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#19 [openwa-api builder 3/7] RUN apt-get update && apt-get install -y     python3     make     g++     && rm -rf /var/lib/apt/lists/*
+2026-Jun-08 17:39:02.375677
+#19 64.16 debconf: delaying package configuration, since apt-utils is not installed
+2026-Jun-08 17:39:02.375677
+#19 64.82 Fetched 91.4 MB in 14s (6471 kB/s)
+2026-Jun-08 17:39:02.375677
+#19 65.43 Selecting previously unselected package libssl3:amd64.
+2026-Jun-08 17:39:02.375677
+#19 65.43 (Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 6096 files and directories currently installed.)
+2026-Jun-08 17:39:02.375677
+#19 65.62 Preparing to unpack .../libssl3_3.0.20-1~deb12u1_amd64.deb ...
+2026-Jun-08 17:39:02.375677
+#19 65.75 Unpacking libssl3:amd64 (3.0.20-1~deb12u1) ...
+2026-Jun-08 17:39:02.375677
+#19 68.69 Selecting previously unselected package libpython3.11-minimal:amd64.
+2026-Jun-08 17:39:02.375677
+#19 68.69 Preparing to unpack .../libpython3.11-minimal_3.11.2-6+deb12u7_amd64.deb ...
+2026-Jun-08 17:39:02.375677
+#19 68.75 Unpacking libpython3.11-minimal:amd64 (3.11.2-6+deb12u7) ...
+2026-Jun-08 17:39:02.375677
+#19 70.64 Selecting previously unselected package libexpat1:amd64.
+2026-Jun-08 17:39:02.375677
+#19 70.64 Preparing to unpack .../libexpat1_2.5.0-1+deb12u2_amd64.deb ...
+2026-Jun-08 17:39:02.375677
+#19 70.71 Unpacking libexpat1:amd64 (2.5.0-1+deb12u2) ...
+2026-Jun-08 17:39:02.375677
+#19 71.50 Selecting previously unselected package python3.11-minimal.
+2026-Jun-08 17:39:02.375677
+#19 71.51 Preparing to unpack .../python3.11-minimal_3.11.2-6+deb12u7_amd64.deb ...
+2026-Jun-08 17:39:02.375677
+#19 71.76 Unpacking python3.11-minimal (3.11.2-6+deb12u7) ...
+2026-Jun-08 17:39:02.375677
+#19 74.17 Setting up libssl3:amd64 (3.0.20-1~deb12u1) ...
+2026-Jun-08 17:39:02.375677
+#19 ...
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#18 [openwa-api production 2/8] RUN apt-get update && apt-get install -y     chromium     fonts-liberation     libappindicator3-1     libasound2     libatk-bridge2.0-0     libatk1.0-0     libcups2     libdbus-1-3     libdrm2     libgbm1     libgtk-3-0     libnspr4     libnss3     libx11-xcb1     libxcomposite1     libxdamage1     libxrandr2     xdg-utils     dumb-init     && rm -rf /var/lib/apt/lists/*
+2026-Jun-08 17:39:02.375677
+#18 73.57 Get:147 http://deb.debian.org/debian bookworm/main amd64 libxcomposite1 amd64 1:0.4.5-1 [16.6 kB]
+2026-Jun-08 17:39:02.375677
+#18 73.57 Get:148 http://deb.debian.org/debian bookworm/main amd64 libxdamage1 amd64 1:1.1.6-1 [15.1 kB]
+2026-Jun-08 17:39:02.375677
+#18 73.58 Get:149 http://deb.debian.org/debian bookworm/main amd64 libxfixes3 amd64 1:6.0.0-2 [22.7 kB]
+2026-Jun-08 17:39:02.375677
+#18 73.61 Get:150 http://deb.debian.org/debian bookworm/main amd64 xkb-data all 2.35.1-1 [764 kB]
+2026-Jun-08 17:39:02.375677
+#18 73.75 Get:151 http://deb.debian.org/debian bookworm/main amd64 libxkbcommon0 amd64 1.5.0-1 [106 kB]
+2026-Jun-08 17:39:02.375677
+#18 73.77 Get:152 http://deb.debian.org/debian bookworm/main amd64 libxnvctrl0 amd64 525.85.05-3~deb12u1 [13.5 kB]
+2026-Jun-08 17:39:02.375677
+#18 73.78 Get:153 http://deb.debian.org/debian bookworm/main amd64 libxrandr2 amd64 2:1.5.2-2+b1 [39.2 kB]
+2026-Jun-08 17:39:02.375677
+#18 73.79 Get:154 http://deb.debian.org/debian bookworm/main amd64 libcairo-gobject2 amd64 1.16.0-7 [112 kB]
+2026-Jun-08 17:39:02.375677
+#18 73.80 Get:155 http://deb.debian.org/debian bookworm/main amd64 libcolord2 amd64 1.4.6-2.2 [137 kB]
+2026-Jun-08 17:39:02.375677
+#18 73.82 Get:156 http://deb.debian.org/debian bookworm/main amd64 libepoxy0 amd64 1.5.10-1 [189 kB]
+2026-Jun-08 17:39:02.375677
+#18 73.84 Get:157 http://deb.debian.org/debian bookworm/main amd64 libpangoft2-1.0-0 amd64 1.50.12+ds-1 [47.4 kB]
+2026-Jun-08 17:39:02.375677
+#18 73.84 Get:158 http://deb.debian.org/debian bookworm/main amd64 libpangocairo-1.0-0 amd64 1.50.12+ds-1 [34.2 kB]
+2026-Jun-08 17:39:02.375677
+#18 73.84 Get:159 http://deb.debian.org/debian bookworm/main amd64 libwayland-client0 amd64 1.21.0-1 [28.3 kB]
+2026-Jun-08 17:39:02.375677
+#18 73.85 Get:160 http://deb.debian.org/debian bookworm/main amd64 libwayland-cursor0 amd64 1.21.0-1 [14.4 kB]
+2026-Jun-08 17:39:02.375677
+#18 73.86 Get:161 http://deb.debian.org/debian bookworm/main amd64 libwayland-egl1 amd64 1.21.0-1 [8640 B]
+2026-Jun-08 17:39:02.375677
+#18 73.87 Get:162 http://deb.debian.org/debian bookworm/main amd64 libxcursor1 amd64 1:1.2.1-1 [40.9 kB]
+2026-Jun-08 17:39:02.375677
+#18 73.91 Get:163 http://deb.debian.org/debian bookworm/main amd64 libxinerama1 amd64 2:1.1.4-3 [17.8 kB]
+2026-Jun-08 17:39:02.375677
+#18 74.30 Get:164 http://deb.debian.org/debian bookworm/main amd64 libgtk-3-common all 3.24.38-2~deb12u3 [3895 kB]
+2026-Jun-08 17:39:02.375677
+#18 75.08 Get:165 http://deb.debian.org/debian bookworm/main amd64 libgtk-3-0 amd64 3.24.38-2~deb12u3 [2847 kB]
+2026-Jun-08 17:39:02.375677
+#18 75.60 Get:166 http://deb.debian.org/debian bookworm/main amd64 libfontenc1 amd64 1:1.1.4-1 [24.3 kB]
+2026-Jun-08 17:39:02.375677
+#18 75.67 Get:167 http://deb.debian.org/debian bookworm/main amd64 libglvnd0 amd64 1.6.0-1 [51.8 kB]
+2026-Jun-08 17:39:02.375677
+#18 75.68 Get:168 http://deb.debian.org/debian bookworm/main amd64 libglapi-mesa amd64 22.3.6-1+deb12u1 [35.7 kB]
+2026-Jun-08 17:39:02.375677
+#18 75.72 Get:169 http://deb.debian.org/debian bookworm/main amd64 libxcb-dri2-0 amd64 1.15-1 [107 kB]
+2026-Jun-08 17:39:02.375677
+#18 75.79 Get:170 http://deb.debian.org/debian bookworm/main amd64 libxcb-dri3-0 amd64 1.15-1 [107 kB]
+2026-Jun-08 17:39:02.375677
+#18 75.85 Get:171 http://deb.debian.org/debian bookworm/main amd64 libxcb-glx0 amd64 1.15-1 [122 kB]
+2026-Jun-08 17:39:02.375677
+#18 75.90 Get:172 http://deb.debian.org/debian bookworm/main amd64 libxcb-present0 amd64 1.15-1 [105 kB]
+2026-Jun-08 17:39:02.375677
+#18 75.96 Get:173 http://deb.debian.org/debian bookworm/main amd64 libxcb-randr0 amd64 1.15-1 [117 kB]
+2026-Jun-08 17:39:02.375677
+#18 76.03 Get:174 http://deb.debian.org/debian bookworm/main amd64 libxcb-sync1 amd64 1.15-1 [109 kB]
+2026-Jun-08 17:39:02.375677
+#18 76.10 Get:175 http://deb.debian.org/debian bookworm/main amd64 libxcb-xfixes0 amd64 1.15-1 [109 kB]
+2026-Jun-08 17:39:02.375677
+#18 76.19 Get:176 http://deb.debian.org/debian bookworm/main amd64 libxshmfence1 amd64 1.3-1 [8820 B]
+2026-Jun-08 17:39:02.375677
+#18 76.25 Get:177 http://deb.debian.org/debian bookworm/main amd64 libxxf86vm1 amd64 1:1.1.4-1+b2 [20.8 kB]
+2026-Jun-08 17:39:02.375677
+#18 76.25 Get:178 http://deb.debian.org/debian bookworm/main amd64 libdrm-amdgpu1 amd64 2.4.114-1+b1 [20.9 kB]
+2026-Jun-08 17:39:02.375677
+#18 76.25 Get:179 http://deb.debian.org/debian bookworm/main amd64 libpciaccess0 amd64 0.17-2 [51.4 kB]
+2026-Jun-08 17:39:02.375677
+#18 76.25 Get:180 http://deb.debian.org/debian bookworm/main amd64 libdrm-intel1 amd64 2.4.114-1+b1 [64.0 kB]
+2026-Jun-08 17:39:02.375677
+#18 76.25 Get:181 http://deb.debian.org/debian bookworm/main amd64 libdrm-nouveau2 amd64 2.4.114-1+b1 [19.1 kB]
+2026-Jun-08 17:39:02.375677
+#18 76.25 Get:182 http://deb.debian.org/debian bookworm/main amd64 libdrm-radeon1 amd64 2.4.114-1+b1 [21.8 kB]
+2026-Jun-08 17:39:02.375677
+#18 76.26 Get:183 http://deb.debian.org/debian bookworm/main amd64 libelf1 amd64 0.188-2.1 [174 kB]
+2026-Jun-08 17:39:02.375677
+#18 76.34 Get:184 http://deb.debian.org/debian bookworm/main amd64 libedit2 amd64 3.1-20221030-2 [93.0 kB]
+2026-Jun-08 17:39:02.375677
+#18 76.87 Get:185 http://deb.debian.org/debian bookworm/main amd64 libz3-4 amd64 4.8.12-3.1 [7216 kB]
+2026-Jun-08 17:39:02.375677
+#18 ...
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#16 [dashboard builder 4/6] RUN npm ci --legacy-peer-deps
+2026-Jun-08 17:39:02.375677
+#16 DONE 77.4s
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#20 [dashboard builder 5/6] COPY . .
+2026-Jun-08 17:39:02.375677
+#20 DONE 4.2s
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#18 [openwa-api production 2/8] RUN apt-get update && apt-get install -y     chromium     fonts-liberation     libappindicator3-1     libasound2     libatk-bridge2.0-0     libatk1.0-0     libcups2     libdbus-1-3     libdrm2     libgbm1     libgtk-3-0     libnspr4     libnss3     libx11-xcb1     libxcomposite1     libxdamage1     libxrandr2     xdg-utils     dumb-init     && rm -rf /var/lib/apt/lists/*
+2026-Jun-08 17:39:02.375677
+#18 78.20 Get:186 http://deb.debian.org/debian bookworm/main amd64 libllvm15 amd64 1:15.0.6-4+b1 [23.1 MB]
+2026-Jun-08 17:39:02.375677
+#18 80.73 Get:187 http://deb.debian.org/debian bookworm/main amd64 libsensors-config all 1:3.6.0-7.1 [14.3 kB]
+2026-Jun-08 17:39:02.375677
+#18 80.75 Get:188 http://deb.debian.org/debian bookworm/main amd64 libsensors5 amd64 1:3.6.0-7.1 [34.2 kB]
+2026-Jun-08 17:39:02.375677
+#18 81.21 Get:189 http://deb.debian.org/debian bookworm/main amd64 libgl1-mesa-dri amd64 22.3.6-1+deb12u1 [7239 kB]
+2026-Jun-08 17:39:02.375677
+#18 82.02 Get:190 http://deb.debian.org/debian bookworm/main amd64 libglx-mesa0 amd64 22.3.6-1+deb12u1 [147 kB]
+2026-Jun-08 17:39:02.375677
+#18 82.03 Get:191 http://deb.debian.org/debian bookworm/main amd64 libglx0 amd64 1.6.0-1 [34.4 kB]
+2026-Jun-08 17:39:02.375677
+#18 82.04 Get:192 http://deb.debian.org/debian bookworm/main amd64 libgl1 amd64 1.6.0-1 [88.4 kB]
+2026-Jun-08 17:39:02.375677
+#18 82.05 Get:193 http://deb.debian.org/debian bookworm/main amd64 libice6 amd64 2:1.0.10-1 [58.5 kB]
+2026-Jun-08 17:39:02.375677
+#18 82.06 Get:194 http://deb.debian.org/debian bookworm/main amd64 libsm6 amd64 2:1.2.3-1 [35.1 kB]
+2026-Jun-08 17:39:02.375677
+#18 82.07 Get:195 http://deb.debian.org/debian bookworm/main amd64 libxt6 amd64 1:1.2.1-1.1 [186 kB]
+2026-Jun-08 17:39:02.375677
+#18 82.08 Get:196 http://deb.debian.org/debian bookworm/main amd64 libxmu6 amd64 2:1.1.3-3 [60.1 kB]
+2026-Jun-08 17:39:02.375677
+#18 82.10 Get:197 http://deb.debian.org/debian bookworm/main amd64 libxpm4 amd64 1:3.5.12-1.1+deb12u1 [48.6 kB]
+2026-Jun-08 17:39:02.375677
+#18 82.11 Get:198 http://deb.debian.org/debian bookworm/main amd64 libxaw7 amd64 2:1.0.14-1 [201 kB]
+2026-Jun-08 17:39:02.375677
+#18 82.15 Get:199 http://deb.debian.org/debian bookworm/main amd64 libxcb-shape0 amd64 1.15-1 [106 kB]
+2026-Jun-08 17:39:02.375677
+#18 82.18 Get:200 http://deb.debian.org/debian bookworm/main amd64 libxft2 amd64 2.3.6-1 [61.8 kB]
+2026-Jun-08 17:39:02.375677
+#18 82.18 Get:201 http://deb.debian.org/debian bookworm/main amd64 libxkbfile1 amd64 1:1.1.0-1 [75.2 kB]
+2026-Jun-08 17:39:02.375677
+#18 82.20 Get:202 http://deb.debian.org/debian bookworm/main amd64 libxmuu1 amd64 2:1.1.3-3 [23.9 kB]
+2026-Jun-08 17:39:02.375677
+#18 82.21 Get:203 http://deb.debian.org/debian bookworm/main amd64 libxv1 amd64 2:1.0.11-1.1 [24.8 kB]
+2026-Jun-08 17:39:02.375677
+#18 82.23 Get:204 http://deb.debian.org/debian bookworm/main amd64 libxxf86dga1 amd64 2:1.1.5-1 [22.1 kB]
+2026-Jun-08 17:39:02.375677
+#18 82.23 Get:205 http://deb.debian.org/debian bookworm/main amd64 x11-utils amd64 7.7+5 [202 kB]
+2026-Jun-08 17:39:02.375677
+#18 82.26 Get:206 http://deb.debian.org/debian bookworm/main amd64 xdg-utils all 1.1.3-4.1 [75.5 kB]
+2026-Jun-08 17:39:02.375677
+#18 83.14 Get:207 http://deb.debian.org/debian-security bookworm-security/main amd64 chromium-common amd64 149.0.7827.53-1~deb12u1 [26.3 MB]
+2026-Jun-08 17:39:02.375677
+#18 ...
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#19 [openwa-api builder 3/7] RUN apt-get update && apt-get install -y     python3     make     g++     && rm -rf /var/lib/apt/lists/*
+2026-Jun-08 17:39:02.375677
+#19 75.43 Setting up libpython3.11-minimal:amd64 (3.11.2-6+deb12u7) ...
+2026-Jun-08 17:39:02.375677
+#19 76.93 Setting up libexpat1:amd64 (2.5.0-1+deb12u2) ...
+2026-Jun-08 17:39:02.375677
+#19 77.40 Setting up python3.11-minimal (3.11.2-6+deb12u7) ...
+2026-Jun-08 17:39:02.375677
+#19 ...
+2026-Jun-08 17:39:02.375677
+2026-Jun-08 17:39:02.375677
+#18 [openwa-api production 2/8] RUN apt-get update && apt-get install -y     chromium     fonts-liberation     libappindicator3-1     libasound2     libatk-bridge2.0-0     libatk1.0-0     libcups2     libdbus-1-3     libdrm2     libgbm1     libgtk-3-0     libnspr4     libnss3     libx11-xcb1     libxcomposite1     libxdamage1     libxrandr2     xdg-utils     dumb-init     && rm -rf /var/lib/apt/lists/*
+2026-Jun-08 17:39:02.375677
+#18 86.12 Get:208 http://deb.debian.org/debian-security bookworm-security/main amd64 chromium amd64 149.0.7827.53-1~deb12u1 [75.5 MB]

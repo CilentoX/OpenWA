@@ -1,13 +1,13 @@
 # OpenWA - Dockerfile
-# Multi-stage build for production-ready image
+# Multi-stage build optimized for fast CI/CD builds (Coolify-compatible)
 
 # ===== Stage 1: Builder =====
 FROM node:22-slim AS builder
 
 WORKDIR /app
 
-# Install build dependencies
-RUN apt-get update && apt-get install -y \
+# Install build dependencies (--no-install-recommends saves ~100MB)
+RUN apt-get update && apt-get install -y --no-install-recommends \
     python3 \
     make \
     g++ \
@@ -26,37 +26,21 @@ COPY . .
 RUN npm run build
 
 # ===== Stage 2: Production =====
-FROM node:22-slim AS production
+# Using official Puppeteer image eliminates the slow chromium apt-get install
+# (saves ~3-5 minutes and ~600MB vs installing chromium from apt)
+FROM ghcr.io/puppeteer/puppeteer:24 AS production
 
-# Install Chrome/Chromium and required dependencies
-RUN apt-get update && apt-get install -y \
-    chromium \
-    fonts-liberation \
-    libappindicator3-1 \
-    libasound2 \
-    libatk-bridge2.0-0 \
-    libatk1.0-0 \
-    libcups2 \
-    libdbus-1-3 \
-    libdrm2 \
-    libgbm1 \
-    libgtk-3-0 \
-    libnspr4 \
-    libnss3 \
-    libx11-xcb1 \
-    libxcomposite1 \
-    libxdamage1 \
-    libxrandr2 \
-    xdg-utils \
+USER root
+
+# Install only dumb-init for proper signal handling (~1 second)
+RUN apt-get update && apt-get install -y --no-install-recommends \
     dumb-init \
     && rm -rf /var/lib/apt/lists/*
 
-# Set Chrome executable path for Puppeteer
-ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
+# Chrome is pre-installed in the puppeteer image
+# Set the cache dir so puppeteer can find it (image default user is pptruser)
+ENV PUPPETEER_CACHE_DIR=/home/pptruser/.cache/puppeteer
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
-
-# Create app user for security
-RUN groupadd -r openwa && useradd -r -g openwa openwa
 
 WORKDIR /app
 
@@ -71,11 +55,10 @@ COPY --from=builder /app/dist ./dist
 
 # Create data directories with proper permissions
 RUN mkdir -p ./data/sessions ./data/media && \
-    chown -R openwa:openwa /app
+    chown -R root:root /app
 
 # Note: Running as root to allow Docker socket access for orchestration
 # For production with stricter security, consider using a Docker socket proxy
-# USER openwa
 
 # Expose port
 EXPOSE 2785
