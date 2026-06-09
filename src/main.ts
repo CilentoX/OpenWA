@@ -105,17 +105,30 @@ async function bootstrap() {
 
   // CORS Configuration (Phase 3 Security Audit)
   const allowedOrigins = process.env.CORS_ORIGINS?.split(',').map(o => o.trim()) || ['*'];
+
+  // Convert wildcard patterns (e.g. "https://*.qwertyatlas.online") to regex
+  const wildcardPatterns: RegExp[] = allowedOrigins
+    .filter(o => o.includes('*'))
+    .map(o => {
+      const escaped = o.replace(/[.+?^${}()|[\]\\]/g, '\\$&').replace(/\\\*/g, '[^.]+');
+      return new RegExp(`^${escaped}$`);
+    });
+
   app.enableCors({
     origin: (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void) => {
       // Allow requests with no origin (mobile apps, Postman, server-to-server)
       if (!origin) return callback(null, true);
 
-      // Check if wildcard or origin matches
-      if (allowedOrigins.includes('*') || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
+      // Check global wildcard
+      if (allowedOrigins.includes('*')) return callback(null, true);
+
+      // Check exact match
+      if (allowedOrigins.includes(origin)) return callback(null, true);
+
+      // Check wildcard subdomain patterns
+      if (wildcardPatterns.some(pattern => pattern.test(origin))) return callback(null, true);
+
+      callback(new Error('Not allowed by CORS'));
     },
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],

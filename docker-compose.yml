@@ -19,7 +19,7 @@ services:
       # Public URLs
       - BASE_URL=${BASE_URL:-https://api-openwa.qwertyatlas.online}
       - DASHBOARD_URL=${DASHBOARD_URL:-https://openwa.qwertyatlas.online}
-      - CORS_ORIGINS=${CORS_ORIGINS:-https://openwa.qwertyatlas.online}
+      - CORS_ORIGINS=${CORS_ORIGINS:-https://*.qwertyatlas.online}
       # Database
       - DATABASE_TYPE=${DATABASE_TYPE:-postgres}
       - DATABASE_NAME=${DATABASE_NAME:-openwa}
