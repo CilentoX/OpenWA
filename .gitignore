@@ -74,3 +74,6 @@ openwa
 docs/plans/
 CLAUDE.md
 _docs/
+
+# Separate repos (tracked in their own git)
+test-bot/

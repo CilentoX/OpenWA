@@ -1,10 +1,12 @@
 import { Controller, Post, Headers, HttpCode, HttpStatus } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse, ApiHeader } from '@nestjs/swagger';
 import { AuthService } from './auth.service';
+import { Public } from './decorators/auth.decorators';
 import { createLogger } from '../../common/services/logger.service';
 
 @ApiTags('auth')
 @Controller('auth')
+@Public()
 export class AuthValidateController {
   private readonly logger = createLogger('AuthValidateController');
 
