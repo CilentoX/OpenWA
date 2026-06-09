@@ -17,7 +17,7 @@ services:
       - PORT=2785
       - LOG_LEVEL=${LOG_LEVEL:-info}
       # Public URLs
-      - BASE_URL=${BASE_URL:-https://api-openwa.qwertyatlas.online}
+      - BASE_URL=${BASE_URL:-https://openwa.qwertyatlas.online}
       - DASHBOARD_URL=${DASHBOARD_URL:-https://openwa.qwertyatlas.online}
       - CORS_ORIGINS=${CORS_ORIGINS:-https://*.qwertyatlas.online}
       # Database
@@ -82,26 +82,6 @@ services:
       - internal
       - coolify
     labels:
-      # --- Traefik (Coolify) routing ---
-      - 'traefik.enable=true'
-      # HTTP Router
-      - 'traefik.http.routers.openwa-api.rule=Host(`${API_HOST:-api-openwa.qwertyatlas.online}`)'
-      - 'traefik.http.routers.openwa-api.entrypoints=http'
-      - 'traefik.http.routers.openwa-api.service=openwa-api'
-      # HTTPS Router
-      - 'traefik.http.routers.openwa-api-secure.rule=Host(`${API_HOST:-api-openwa.qwertyatlas.online}`)'
-      - 'traefik.http.routers.openwa-api-secure.entrypoints=https'
-      - 'traefik.http.routers.openwa-api-secure.tls=true'
-      - 'traefik.http.routers.openwa-api-secure.tls.certresolver=letsencrypt'
-      - 'traefik.http.routers.openwa-api-secure.service=openwa-api'
-      # Service
-      - 'traefik.http.services.openwa-api.loadbalancer.server.port=2785'
-      # WebSocket support (for socket.io)
-      - 'traefik.http.middlewares.openwa-ws.headers.customrequestheaders.Connection=Upgrade'
-      - 'traefik.http.middlewares.openwa-ws.headers.customrequestheaders.Upgrade=websocket'
-      - 'traefik.http.routers.openwa-api-secure.middlewares=openwa-ws'
-      - 'traefik.http.routers.openwa-api.middlewares=openwa-ws'
-      # Meta
       - 'com.openwa.service=api'
       - 'com.openwa.core=true'
 
