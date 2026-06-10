@@ -35,7 +35,7 @@ export class SendMediaMessageDto {
     example: 'https://example.com/image.jpg',
   })
   @IsOptional()
-  @IsUrl()
+  @IsUrl({ require_tld: false })
   @ValidateIf((o: SendMediaMessageDto) => !o.base64)
   url?: string;
 
