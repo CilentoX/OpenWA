@@ -2,6 +2,7 @@ import { EventEmitter } from 'events';
 import { Client, LocalAuth, MessageMedia } from 'whatsapp-web.js';
 import * as qrcode from 'qrcode';
 import * as path from 'path';
+import * as fs from 'fs';
 import {
   IWhatsAppEngine,
   EngineStatus,
@@ -86,6 +87,18 @@ export class WhatsAppWebJsAdapter extends EventEmitter implements IWhatsAppEngin
         this.logger.log(
           `Using proxy: ${this.config.proxy.type}://${this.config.proxy.url.replace(/:[^:@]*@/, ':***@')}`,
         );
+      }
+
+      // Clear SingletonLock if it exists to prevent Chromium from crashing on boot (profile in use error)
+      const sessionDir = path.join(path.resolve(this.config.sessionDataPath), `session-${this.config.sessionId}`);
+      const lockFile = path.join(sessionDir, 'Default', 'SingletonLock');
+      try {
+        if (fs.existsSync(lockFile)) {
+          fs.unlinkSync(lockFile);
+          this.logger.log(`Cleaned up stale SingletonLock for session: ${this.config.sessionId}`);
+        }
+      } catch (err) {
+        this.logger.error(`Failed to clean up SingletonLock: ${err.message}`);
       }
 
       this.client = new Client({
