@@ -71,10 +71,8 @@ export function Sessions() {
         currentSessionName.current = '';
         fetchSessions();
       }
-    } catch {
-      setQrData(null);
-      currentSessionName.current = '';
-      fetchSessions();
+    } catch (err) {
+      console.warn('QR Code not ready yet, retrying...', err);
     }
   }, []);
 
@@ -99,6 +97,15 @@ export function Sessions() {
       setNewSessionName('');
       setShowCreateModal(false);
       toast.success(t('sessions.create.successTitle'), t('sessions.create.successDesc', { name: newSession.name }));
+
+      // Automatically start the session
+      await sessionApi.start(newSession.id);
+
+      // Immediately open the QR Modal in loading state
+      currentSessionName.current = newSession.name;
+      setQrData({ sessionId: newSession.id, sessionName: newSession.name, qrCode: '' });
+
+      await fetchSessions();
     } catch (err) {
       const msg = err instanceof Error ? err.message : t('sessions.create.errorDefault');
       setError(msg);
@@ -150,12 +157,13 @@ export function Sessions() {
   const handleShowQR = async (id: string) => {
     const session = sessions.find(s => s.id === id);
     const sessionName = session?.name || '';
+    currentSessionName.current = sessionName;
+    setQrData({ sessionId: id, sessionName, qrCode: '' });
     try {
       const qr = await sessionApi.getQR(id);
       setQrData({ sessionId: id, sessionName, qrCode: qr.qrCode });
     } catch (err) {
       console.error('Failed to get QR:', err);
-      setError(t('sessions.qr.unavailable'));
     }
   };
 
@@ -450,9 +458,8 @@ export function Sessions() {
                   <button
                     className="btn-sm"
                     onClick={() => handleShowQR(session.id)}
-                    disabled={session.status !== 'qr_ready'}
                   >
-                    {session.status === 'qr_ready' ? t('sessions.qr.showQr') : t('sessions.qr.loading')}
+                    {t('sessions.qr.showQr')}
                   </button>
                 </div>
               ) : (
@@ -477,6 +484,18 @@ export function Sessions() {
                   <Eye size={16} />
                   {t('sessions.actions.view')}
                 </button>
+                {canWrite && ['created', 'idle', 'disconnected'].includes(session.status) && (
+                  <button className="btn-action" onClick={() => handleStart(session.id)}>
+                    <QrCode size={16} />
+                    Obter QR
+                  </button>
+                )}
+                {['initializing', 'connecting', 'qr_ready'].includes(session.status) && (
+                  <button className="btn-action" onClick={() => handleShowQR(session.id)}>
+                    <QrCode size={16} />
+                    Obter QR
+                  </button>
+                )}
                 {canWrite &&
                 (session.status === 'created' || session.status === 'idle' || session.status === 'disconnected') ? (
                   <button className="btn-action" onClick={() => handleStart(session.id)}>
