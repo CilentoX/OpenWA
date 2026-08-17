@@ -129,8 +129,9 @@ services:
       POSTGRES_DB: ${DATABASE_NAME:-openwa}
     volumes:
       - postgres-data:/var/lib/postgresql/data
+      - ./scripts/init-postgres.sql:/docker-entrypoint-initdb.d/init-postgres.sql:ro
     healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -U ${DATABASE_USERNAME:-openwa}']
+      test: ['CMD-SHELL', 'pg_isready -U ${DATABASE_USERNAME:-openwa} -d ${DATABASE_NAME:-openwa}']
       interval: 5s
       timeout: 3s
       retries: 5
