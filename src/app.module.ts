@@ -52,10 +52,10 @@ if (process.env.QUEUE_ENABLED === 'true') {
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
         type: 'sqlite' as const,
-        database: configService.get<string>('database.database', './data/main.sqlite'),
+        database: configService.get<string>('database.database') || './data/main.sqlite',
         entities: [__dirname + '/modules/auth/**/*.entity{.ts,.js}', __dirname + '/modules/audit/**/*.entity{.ts,.js}'],
         synchronize: true,
-        logging: configService.get<boolean>('database.logging', false),
+        logging: configService.get<boolean>('database.logging') || false,
       }),
     }),
 
@@ -65,7 +65,7 @@ if (process.env.QUEUE_ENABLED === 'true') {
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => {
-        const dbType = configService.get<'sqlite' | 'postgres'>('dataDatabase.type', 'sqlite');
+        const dbType = configService.get<'sqlite' | 'postgres'>('dataDatabase.type') || 'sqlite';
         const baseConfig = {
           entities: [
             __dirname + '/modules/session/**/*.entity{.ts,.js}',
@@ -73,25 +73,25 @@ if (process.env.QUEUE_ENABLED === 'true') {
             __dirname + '/modules/message/**/*.entity{.ts,.js}',
           ],
           migrations: [__dirname + '/database/migrations/*{.ts,.js}'],
-          logging: configService.get<boolean>('dataDatabase.logging', false),
+          logging: configService.get<boolean>('dataDatabase.logging') || false,
         };
 
         if (dbType === 'postgres') {
           return {
             ...baseConfig,
             type: 'postgres' as const,
-            host: configService.get<string>('dataDatabase.host'),
-            port: configService.get<number>('dataDatabase.port'),
-            username: configService.get<string>('dataDatabase.username'),
-            password: configService.get<string>('dataDatabase.password'),
-            database: configService.get<string>('dataDatabase.database', 'openwa'),
+            host: configService.get<string>('dataDatabase.host') || 'localhost',
+            port: Number(configService.get<number>('dataDatabase.port')) || 5432,
+            username: configService.get<string>('dataDatabase.username') || 'openwa',
+            password: configService.get<string>('dataDatabase.password') || 'openwa',
+            database: configService.get<string>('dataDatabase.database') || 'openwa',
             // Never auto-sync Postgres in production; rely on migrations.
-            synchronize: configService.get<boolean>('dataDatabase.synchronize', false),
+            synchronize: configService.get<boolean>('dataDatabase.synchronize') ?? false,
             migrationsRun: true,
             retryAttempts: 10,
             retryDelay: 3000,
             extra: {
-              max: configService.get<number>('dataDatabase.poolSize', 10),
+              max: Number(configService.get<number>('dataDatabase.poolSize')) || 10,
             },
           };
         }
@@ -102,9 +102,9 @@ if (process.env.QUEUE_ENABLED === 'true') {
         return {
           ...baseConfig,
           type: 'sqlite' as const,
-          database: configService.get<string>('dataDatabase.database', './data/openwa.sqlite'),
-          synchronize: configService.get<boolean>('dataDatabase.synchronize', true),
-          migrationsRun: !configService.get<boolean>('dataDatabase.synchronize', true),
+          database: configService.get<string>('dataDatabase.database') || './data/openwa.sqlite',
+          synchronize: configService.get<boolean>('dataDatabase.synchronize') ?? true,
+          migrationsRun: !(configService.get<boolean>('dataDatabase.synchronize') ?? true),
         };
       },
     }),
