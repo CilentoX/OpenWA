@@ -79,6 +79,8 @@ export class WhatsAppWebJsAdapter extends EventEmitter implements IWhatsAppEngin
         '--no-first-run',
         '--no-zygote',
         '--disable-gpu',
+        '--disable-extensions',
+        '--disable-software-rasterizer',
       ];
 
       // Add proxy configuration if provided
@@ -116,6 +118,11 @@ export class WhatsAppWebJsAdapter extends EventEmitter implements IWhatsAppEngin
         puppeteer: {
           headless: this.config.puppeteer?.headless ?? true,
           args: puppeteerArgs,
+          protocolTimeout: 0,
+        },
+        webVersionCache: {
+          type: 'remote',
+          remotePath: 'https://raw.githubusercontent.com/wppconnect-team/wa-js/main/dist/wppconnect-wa.js',
         },
       });
 
@@ -507,8 +514,7 @@ export class WhatsAppWebJsAdapter extends EventEmitter implements IWhatsAppEngin
         isSuperAdmin: Boolean(p.isSuperAdmin),
       }));
 
-      return {
-        id: chat.id._serialized,
+      return {\n        id: chat.id._serialized,
         name: chat.name,
         description: groupChat.description ? String(groupChat.description) : undefined,
         owner: groupChat.owner?._serialized ? String(groupChat.owner._serialized) : undefined,
