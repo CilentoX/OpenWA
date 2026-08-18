@@ -64,6 +64,15 @@ STORAGE_PATH=./data/media
   dotenv.config({ path: generatedEnvPath, override: false });
 }
 
+// Global Unhandled Error Traps to prevent Puppeteer TargetClose / Protocol timeouts from crashing the NestJS process
+process.on('unhandledRejection', (reason: unknown) => {
+  console.error('[OpenWA UnhandledRejection Trap]', reason instanceof Error ? reason.message : reason);
+});
+
+process.on('uncaughtException', (err: Error) => {
+  console.error('[OpenWA UncaughtException Trap]', err.message);
+});
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
