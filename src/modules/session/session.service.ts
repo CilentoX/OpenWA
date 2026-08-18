@@ -213,7 +213,12 @@ export class SessionService implements OnModuleDestroy, OnModuleInit {
       baseDelay: config?.reconnectBaseDelay ?? 5000,
     });
 
-    await this.initializeEngine(id, session);
+    // Asynchronously initialize engine so HTTP POST /start returns immediately without hitting Cloudflare/reverse-proxy 504 timeouts
+    void this.initializeEngine(id, session).catch(err => {
+      this.logger.error(`Background initialization failed for session ${id}:`, err instanceof Error ? err.stack : String(err));
+    });
+
+    await this.updateStatus(id, SessionStatus.INITIALIZING);
     return this.findOne(id);
   }
 
