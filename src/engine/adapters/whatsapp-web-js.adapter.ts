@@ -53,6 +53,15 @@ export interface WhatsAppWebJsConfig {
 
 export class WhatsAppWebJsAdapter extends EventEmitter implements IWhatsAppEngine {
   private client: Client | null = null;
+
+  private formatChatId(chatId: string): string {
+    if (!chatId || typeof chatId !== 'string') return chatId;
+    let clean = chatId.trim();
+    if (!clean.includes('@')) {
+      clean = `${clean.replace(/[^\d]/g, '')}@c.us`;
+    }
+    return clean;
+  }
   private status: EngineStatus = EngineStatus.DISCONNECTED;
   private qrCode: string | null = null;
   private phoneNumber: string | null = null;
@@ -81,6 +90,26 @@ export class WhatsAppWebJsAdapter extends EventEmitter implements IWhatsAppEngin
         '--disable-gpu',
         '--disable-extensions',
         '--disable-software-rasterizer',
+        '--disable-background-networking',
+        '--disable-background-timer-throttling',
+        '--disable-backgrounding-occluded-windows',
+        '--disable-breakpad',
+        '--disable-client-side-phishing-detection',
+        '--disable-component-update',
+        '--disable-default-apps',
+        '--disable-domain-reliability',
+        '--disable-features=AudioServiceOutOfProcess,IsolateOrigins,site-per-process',
+        '--disable-hang-monitor',
+        '--disable-ipc-flooding-protection',
+        '--disable-popup-blocking',
+        '--disable-prompt-on-repost',
+        '--disable-renderer-backgrounding',
+        '--disable-sync',
+        '--force-color-profile=srgb',
+        '--metrics-recording-only',
+        '--no-default-browser-check',
+        '--password-store=basic',
+        '--use-mock-keychain',
       ];
 
       // Add proxy configuration if provided
@@ -299,7 +328,8 @@ export class WhatsAppWebJsAdapter extends EventEmitter implements IWhatsAppEngin
 
   async sendTextMessage(chatId: string, text: string): Promise<MessageResult> {
     this.ensureReady();
-    const msg = await this.client!.sendMessage(chatId, text);
+    const targetChat = this.formatChatId(chatId);
+    const msg = await this.client!.sendMessage(targetChat, text);
     return {
       id: msg.id._serialized,
       timestamp: msg.timestamp,
@@ -337,7 +367,8 @@ export class WhatsAppWebJsAdapter extends EventEmitter implements IWhatsAppEngin
       messageMedia = new MessageMedia(media.mimetype, media.data.toString('base64'), media.filename);
     }
 
-    const msg = await this.client!.sendMessage(chatId, messageMedia, {
+    const targetChat = this.formatChatId(chatId);
+    const msg = await this.client!.sendMessage(targetChat, messageMedia, {
       caption: media.caption,
     });
 
@@ -514,7 +545,8 @@ export class WhatsAppWebJsAdapter extends EventEmitter implements IWhatsAppEngin
         isSuperAdmin: Boolean(p.isSuperAdmin),
       }));
 
-      return {\n        id: chat.id._serialized,
+      return {
+        id: chat.id._serialized,
         name: chat.name,
         description: groupChat.description ? String(groupChat.description) : undefined,
         owner: groupChat.owner?._serialized ? String(groupChat.owner._serialized) : undefined,
