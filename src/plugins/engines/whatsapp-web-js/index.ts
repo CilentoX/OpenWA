@@ -34,12 +34,20 @@ export class WhatsAppWebJsPlugin implements IEnginePlugin {
   }
 
   createEngine(config: Record<string, unknown>): IWhatsAppEngine {
-    const sessionId = config.sessionId as string;
-    const sessionDataPath = (this.context?.config.sessionDataPath as string) ?? './data/sessions';
-    const headless = (this.context?.config.headless as boolean) ?? true;
-    const puppeteerArgs = (this.context?.config.puppeteerArgs as string[]) ?? [
+    const sessionId = (config.sessionId as string) || 'default';
+    const sessionDataPath =
+      (this.context?.config?.sessionDataPath as string) ||
+      process.env.SESSION_DATA_PATH ||
+      './data/sessions';
+    const headless = (this.context?.config?.headless as boolean) ?? true;
+    const puppeteerArgs = (this.context?.config?.puppeteerArgs as string[]) || [
       '--no-sandbox',
       '--disable-setuid-sandbox',
+      '--disable-dev-shm-usage',
+      '--disable-accelerated-2d-canvas',
+      '--no-first-run',
+      '--no-zygote',
+      '--disable-gpu',
     ];
 
     const proxyUrl = config.proxyUrl as string | undefined;
