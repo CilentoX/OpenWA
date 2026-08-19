@@ -49,7 +49,7 @@ export default () => ({
 
   // WhatsApp engine configuration
   engine: {
-    type: process.env.ENGINE_TYPE || 'whatsapp-web.js',
+    type: process.env.ENGINE_TYPE || 'baileys',
     puppeteer: {
       headless: process.env.PUPPETEER_HEADLESS !== 'false',
       args: (process.env.PUPPETEER_ARGS || '--no-sandbox,--disable-setuid-sandbox').split(','),
