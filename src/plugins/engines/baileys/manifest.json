@@ -1,0 +1,25 @@
+{
+  "id": "baileys",
+  "name": "Baileys Engine",
+  "version": "1.0.0",
+  "type": "engine",
+  "description": "High-performance direct WebSocket WhatsApp engine (Zero Chromium)",
+  "author": "OpenWA Contributors",
+  "main": "index.ts",
+  "provides": [
+    "whatsapp-engine"
+  ],
+  "dependencies": {
+    "openwa": ">=0.1.0"
+  },
+  "configSchema": {
+    "type": "object",
+    "properties": {
+      "sessionDataPath": {
+        "type": "string",
+        "default": "./data/sessions",
+        "description": "Path to store Baileys session auth credentials"
+      }
+    }
+  }
+}
