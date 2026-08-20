@@ -1,12 +1,12 @@
 # OpenWA - Dockerfile
-# Multi-stage build for production-ready image
+# Optimized multi-stage build with serialized stages to prevent high-concurrency OOM on VPS
 
 # ===== Stage 1: Builder =====
 FROM --platform=$BUILDPLATFORM docker.io/node:22-slim@sha256:d649c27dae7ba0137b3cef5dd75baa422c08dc3d9e3fc0c23dfb172dc3cc6436 AS builder
 
 WORKDIR /app
 
-ENV NODE_OPTIONS="--max-old-space-size=2048"
+ENV NODE_OPTIONS="--max-old-space-size=1536"
 
 # Install build dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -37,10 +37,16 @@ FROM docker.io/node:22-slim@sha256:d649c27dae7ba0137b3cef5dd75baa422c08dc3d9e3fc
 
 ENV NODE_ENV=production
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+ENV NODE_OPTIONS="--max-old-space-size=1536"
+
+# Serialize BuildKit execution: copy build artifacts early so Stage 2 does not run concurrently with Stage 1
+WORKDIR /app
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/dashboard/dist ./dashboard/dist
 
 ARG TARGETARCH
 
-# Install runtime system dependencies in a single consolidated, cached RUN
+# Install runtime system dependencies
 COPY scripts/pgdg-ACCC4CF8.asc /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc
 RUN echo "deb [signed-by=/usr/share/postgresql-common/pgdg/apt.postgresql.org.asc] http://apt.postgresql.org/pub/repos/apt bookworm-pgdg main" > /etc/apt/sources.list.d/pgdg.list \
     && apt-get update && apt-get install -y --no-install-recommends \
@@ -75,8 +81,6 @@ RUN echo "deb [signed-by=/usr/share/postgresql-common/pgdg/apt.postgresql.org.as
 # Create app user for security
 RUN groupadd -r openwa && useradd -r -g openwa openwa
 
-WORKDIR /app
-
 # Copy package files & patchers
 COPY package*.json ./
 COPY scripts/postinstall.js scripts/patch-wwebjs-201832.js scripts/wwebjs-201832.patch scripts/patch-wwebjs-newsletter-preview.js scripts/patch-wwebjs-status.js scripts/patch-wwebjs-ready-sync.js scripts/patch-wwebjs-participant-arity.js scripts/patch-wwebjs-block.js scripts/patch-baileys-appstate.js scripts/patch-baileys-newsletter-create.js ./scripts/
@@ -106,10 +110,6 @@ RUN if [ "$TARGETARCH" = arm64 ]; then \
         ln -s "$chrome_path" /usr/local/bin/puppeteer-chrome; \
     fi
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/local/bin/puppeteer-chrome
-
-# Copy built application from builder stage
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/dashboard/dist ./dashboard/dist
 
 # Create data directories with correct ownership
 RUN mkdir -p ./data/sessions ./data/media ./data/plugins && \
